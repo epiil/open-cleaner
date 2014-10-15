@@ -3,10 +3,16 @@ tape-cleaner
 
 Open-source tape cleaner for video preservation
 
-
-sketch_builddate.ino - Arduino tape cleaner "sketch"
+Contents:
 
 /Libary - contains Arduino libraries
 
-BUILD AT YOUR OWN RISK!
+/schematics 
 
+/sketches - Arduino "sketches"
+
+cleanerparameters - tape cleaner functions
+
+UNDER CONSTRUCTION
+
+partslist.txt - list of available parts (in-progress)
