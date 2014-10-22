@@ -1,0 +1,5 @@
+2014-10-22
+
+-----
+
++ Added preliminary Arduino sketch and motor library, spindle models, etc.
