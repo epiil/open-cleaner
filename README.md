@@ -5,14 +5,9 @@ Open-source tape cleaner for video preservation
 
 Contents:
 
-/Libary - contains Arduino libraries
+/hardware - contains .scad and .stl files for 3C CAD / parts printing. All modeling is done with OpenSCAD (http://www.openscad.org/)
 
-/schematics 
+/software - contains .ino Arduino "sketches" and necessary Arduino libraries
 
-/sketches - Arduino "sketches"
+/misc - contains information regarding cleaning parameters, parts lists, photos, schematics, etc.
 
-cleanerparameters - tape cleaner functions
-
-UNDER CONSTRUCTION
-
-partslist.txt - list of available parts (in-progress)

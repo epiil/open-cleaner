@@ -5,4 +5,3 @@
 
 Adafruit Motor/Stepper/Servo Shield for Arduino v2 Kit - v2.3
 
-3. 
