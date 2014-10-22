@@ -1,7 +1,7 @@
 tape-cleaner
 ============
 
-Open-source tape cleaner for video preservation
+An in-progress open-source tape cleaning solution for analog video preservation
 
 Contents:
 
