@@ -5,3 +5,6 @@
 
 Adafruit Motor/Stepper/Servo Shield for Arduino v2 Kit - v2.3
 
+3. (2) Hitec 31311S HS-311 standard servos
+4. (2) DC motors (Ametek, Sony, etc), exact RPM/V/W TBD (in-progress)
+5. (2) Professional Pellon Non-woven cotton rolls (approx. 3 inches wide)
