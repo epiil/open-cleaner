@@ -1,0 +1,13 @@
+UMatic spindle dimensions:
+
+main outside diameter: 31.05mm / 1.222 inches
+bottom outside diameter: 35.33 mm /  1.391 inches
+
+interior diameter: 8.05mm / 0.316 inches
+
+prongs outside diameter: 3.93mm / 0.154inches
+
+top outside diameter: 26.49mm / 1.043 inches
+height: 19.54mm / 0.769 inches
+
+ 
