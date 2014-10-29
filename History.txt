@@ -3,6 +3,7 @@
 -----
 
 + Revised sketch to include two DC motors for pellon cleaning system (removed two servo motors)
++ Moved tape cleaner enclosure design to TinkerCAD
 
 
 
