@@ -1,0 +1,14 @@
+UMatic hub dimensions (60 minute cassette):
+
+Supply side:
+
+Bottom outside diameter: 120.90 mm / 4.760 inches
+Top outside diameter: 82.55 mm / 3.25 inches
+
+Take-up side
+
+Bottom outside diameter: 49.07 mm / 1.933 inches
+Top outside diameter: 120.90 mm / 4.760 inches
+
+
+ 
