@@ -9,5 +9,5 @@ Contents:
 
 /software - contains .ino Arduino "sketches" and necessary Arduino/Adafruit libraries (http://www.arduino.cc/)
 
-/misc - contains information regarding cleaning parameters, parts lists, photos, schematics, etc.
+/misc - contains information regarding cleaning parameters, parts lists, photos, schematics, etc. Schematics are done with Fritzing (http://fritzing.org/home/)
 
