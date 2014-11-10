@@ -6,8 +6,6 @@ Parts List (Updated 11/9/2014)
 4. (2) Amber Professional Pellon Non-Woven Rolls
 5. (2) Brushed DC Motors 
 
-**This product has been discontinued, and can be replaced with the Adafruit Motor/Stepper/Servo Shield for Arduino v2 Kit - v2.3**
-
 Price List (Updated 11/9/2014)
 
 $24.99 (1) Arduino Uno Rev3 
