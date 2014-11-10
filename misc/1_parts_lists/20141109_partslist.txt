@@ -1,0 +1,19 @@
+Parts List (Updated 11/9/2014)
+
+1. (1) Arduino Uno Rev3 Microcontroller board
+2. (1) Arduino Motor Shield Rev3 **
+3. (2) Seiko Continuous Sweep Hi-Torque Quartz Clock Motors
+4. (2) Amber Professional Pellon Non-Woven Rolls
+5. (2) Brushed DC Motors 
+
+**This product has been discontinued, and can be replaced with the Adafruit Motor/Stepper/Servo Shield for Arduino v2 Kit - v2.3**
+
+Price List (Updated 11/9/2014)
+
+$24.99 (1) Arduino Uno Rev3 
+$24.99 (1) Arduino Motor Shield Rev3
+$29.90 (2) Seiko Continuous Sweep Hi-Torque Quartz Clock Motors
+$33.94 (2) Amber Professional Pellon Non-Woven Rolls
+$40.00 (2) Brushed DC Motors
+
+$153.82 Total
