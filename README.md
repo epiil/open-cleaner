@@ -5,9 +5,9 @@ An (in-progress) open-source tape cleaning solution for analog video / magnetic 
 
 Contents:
 
-/hardware - contains .scad and .stl files for 3D CAD / parts printing. All modeling is done with OpenSCAD (http://www.openscad.org/) and Tinkercad (https://tinkercad.com/)
+/hardware - contains .scad and .stl files for 3D CAD / parts printing. All 3D modeling is done with OpenSCAD (http://www.openscad.org/) and Tinkercad (https://tinkercad.com/). All circuit schematics are done with Fritzing (http://fritzing.org/home/)
 
 /software - contains .ino Arduino "sketches" and necessary Arduino/Adafruit libraries (http://www.arduino.cc/)
 
-/misc - contains information regarding cleaning parameters, parts lists, photos, schematics, etc. Schematics are done with Fritzing (http://fritzing.org/home/)
+/misc - contains information regarding cleaning parameters, parts lists, photos, schematics, etc. 
 
