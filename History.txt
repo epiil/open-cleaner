@@ -1,3 +1,10 @@
+2014-11-09
+
+-----
+
++ Cleaned up file naming conventions, added folder for legacy documents
+
+
 2014-10-28
 
 -----
