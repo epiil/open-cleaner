@@ -5,6 +5,9 @@ Parts List (Updated 11/9/2014)
 3. (2) Seiko Continuous Sweep Hi-Torque Quartz Clock Motors
 4. (2) Amber Professional Pellon Non-Woven Rolls
 5. (2) Brushed DC Motors 
+6. (2) TIP120 Power Darlington Transistors
+7. (2) NPN Bipolar Transistors (PN2222) 
+8. (2) 1N4001 Diodes
 
 Price List (Updated 11/9/2014)
 
@@ -13,5 +16,8 @@ $24.99 (1) Arduino Motor Shield Rev3
 $29.90 (2) Seiko Continuous Sweep Hi-Torque Quartz Clock Motors
 $33.94 (2) Amber Professional Pellon Non-Woven Rolls
 $40.00 (2) Brushed DC Motors
+$ 2.50 (1) TIP120 Power Darlington Transistors - 3 pack[ID:976] via Adafruit
+$ 1.95 (1) NPN Bipolar Transistors (PN2222) - 10 pack[ID:756] via Adafruit
+$ 3.00 (2) 1N4001 Diode - 10 pack[ID:755] via Adafruit
 
-$153.82 Total
+$161.27 Total
