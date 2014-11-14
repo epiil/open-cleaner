@@ -5,3 +5,7 @@ Option 1:
 outside diameter: 12.43mm / 0.489 inches
 
 height: 38.20mm / 1.50 inches
+
+Seiko pellon take-up spindle outside diameter (for mounting to enclosure): 7.04 mm / 0.277 inches
+Seiko pellon take-up spindle inside diameter (free standing): 4.15 mm / 0.163 inches 
+seiko pellon take-up spindle "arm nut": 2.93 mm / 0.115 inches
