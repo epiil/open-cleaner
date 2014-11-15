@@ -1,3 +1,9 @@
+2014-11-15
+
+-----
+
++ Added sketch for bidirectional take-up/supply motor testing
+
 2014-11-13
 
 -----
