@@ -15,7 +15,7 @@ void loop(){
   
   delay(3000);
   
-  digitalWrite(9, HIGH); //Eengage the Brake for Channel A
+  digitalWrite(9, HIGH); //Engage the Brake for Channel A
 
   delay(1000);
   
@@ -26,7 +26,7 @@ void loop(){
   
   delay(3000);
   
-  digitalWrite(9, HIGH); //Eengage the Brake for Channel A
+  digitalWrite(9, HIGH); //Engage the Brake for Channel A
   
   delay(1000);
   
