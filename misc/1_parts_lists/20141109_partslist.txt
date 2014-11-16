@@ -1,4 +1,4 @@
-Parts List (Updated 11/9/2014)
+Parts List (Updated 11/15/2014)
 
 1. (1) Arduino Uno Rev3 Microcontroller board
 2. (1) Arduino Motor Shield Rev3 (http://arduino.cc/en/Main/ArduinoMotorShieldR3)
@@ -12,7 +12,7 @@ Parts List (Updated 11/9/2014)
 10.(2) 330 Ohm resistors
 11.(2) Photo Interrupters - GP1A57HRJ00F
 
-Price List (Updated 11/9/2014)
+Price List (Updated 11/15/2014)
 
 $24.99 (1) Arduino Uno Rev3 
 $24.99 (1) Arduino Motor Shield Rev3
