@@ -1,3 +1,9 @@
+2014-11-17
+
+-----
+
++ Added preliminary components for pellon motor system
+
 2014-11-15
 
 -----
