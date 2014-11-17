@@ -11,6 +11,11 @@ Parts List (Updated 11/15/2014)
 9. (2) Sparkfun Photo Interrupter Breakout Board - GP1A57HRJ00F
 10.(2) 330 Ohm resistors
 11.(2) Photo Interrupters - GP1A57HRJ00F
+12.(1) DPDT switch
+13.(1) SPDT switch
+14.(2) LM317TG voltage regulators
+15.(2) Heatsinks TO-220
+16.(2) 0.1uF capacitors
 
 Price List (Updated 11/15/2014)
 
@@ -25,5 +30,10 @@ $ 3.00 (2) 1N4001 Diode - 10 pack[ID:755] via Adafruit
 $ 3.00 (2) Sparkfun Photo Interrupter Breakout Board - GP1A57HRJ00F
 $  .50 (2) 330 Ohm resistors
 $ 3.90 (2) Photo Interrupters - GP1A57HRJ00F
+$ 1.95 (1) DPDT switch
+$ 1.95 (1) SPDT switch
+$ 7.80 (2) LM317TG voltage regulators
+$ 3.80 (2) Heatsinks TO-220
+$  .50 (2) 0.1uF capacitors
 
-$168.67 Total
+$184.67 Total
