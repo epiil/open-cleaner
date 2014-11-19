@@ -28,7 +28,7 @@ Parts List (Updated 11/18/2014)
 (2) Heatsinks TO-220
 (2) 0.1uF capacitors
 
-________________________________________
+-----
 
 Price List (Updated 11/18/2014)
 
