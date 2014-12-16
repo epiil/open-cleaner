@@ -1,9 +1,9 @@
-tape-cleaner
+##tape-cleaner
 ============
 
 An (in-progress) open-source tape cleaning solution for analog video / magnetic media
 
-Repository Contents:
+##Repository Contents:
 
 - /hardware - contains .scad and .stl files for 3D CAD / parts printing. All 3D modeling is done with OpenSCAD (http://www.openscad.org/) and Tinkercad (https://tinkercad.com/). All circuit schematics are done with Fritzing (http://fritzing.org/home/)
 
