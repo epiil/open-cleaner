@@ -1,7 +1,4 @@
-##tape-cleaner
-============
-
-An (in-progress) open-source tape cleaning solution for analog video / magnetic media
+##tape-cleaner: An (in-progress) open-source tape cleaning solution for analog video / magnetic media
 
 ##Repository Contents:
 
