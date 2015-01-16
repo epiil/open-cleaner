@@ -22,3 +22,10 @@ interior diameter: 7.96mm / .313 inches
 height: 16.85mm / .664 inches
 
 prong diameter: 3.82mm / 0.150 inches
+
+
+Take-up:
+
+120 mm - outside diameter
+
+2mm - height
