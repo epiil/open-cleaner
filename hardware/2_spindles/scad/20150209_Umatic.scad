@@ -16,7 +16,7 @@ outerHeight=2; //outer "seat" height
 //SPINDLE "INNER" DIAMETERS
 innerRadius=13.5; //inner spindle radius
 
-innerDiam=27; //inner spindle diameter
+innerDiam=29.62; //inner spindle diameter
 
 innerHeight=20; //inner spindle height
 
@@ -28,6 +28,12 @@ shaftRadius=4; //inner shaft radius
 
 prongNum=3; //number of prongs (int)
 
+prongRadius=1.92;
+
+prongDiam=3.84;
+
+prongHeight=3.93;
+
 module spindle()
 {
 	difference()
@@ -37,11 +43,11 @@ module spindle()
 			cylinder(r=outerRadius, h=outerHeight, $fs=.01);
 			cylinder(d=29.86, h=innerHeight, $fs=.01);
 			translate([9,0,0])
-			cylinder(h=22, r=3.82);
+			cylinder(h=innerHeight+prongHeight, r=prongRadius);
 			translate([-4,8,0])
-			cylinder(h=22, r=3.82);
-			translate([-5,-7,0])
-			cylinder(h=22, r=3.82)
+			cylinder(h=innerHeight+prongHeight, r=prongRadius);
+			translate([-5,-8,0])
+			cylinder(h=innerHeight+prongHeight, r=prongRadius);
 			{
 
 			}
@@ -49,7 +55,7 @@ module spindle()
 		
 		difference()
 		{
-			cylinder(r=shaftRadius, h=innerHeight+1);
+			cylinder(r=shaftRadius, h=innerHeight*2+1, center=true);
 			{
 
 			}
