@@ -1,21 +1,21 @@
-Parts List (Updated 11/18/2014)
+##Parts List (Updated 11/18/2014)
 
-1. Main circuit boards / microcontrollers
+###Main circuit boards / microcontrollers
 
 (1) Arduino Uno Rev3 Microcontroller board
 (1) Arduino Motor Shield Rev3 (http://arduino.cc/en/Main/ArduinoMotorShieldR3)
 (2) Sparkfun Photo Interrupter Breakout Board - GP1A57HRJ00F
 
-2. Motors
+###Motors
 
 (2) Seiko Continuous Sweep Hi-Torque Quartz Clock Motors
 (2) Brushed DC Motors 
 
-3. Cleaning fabric
+###Cleaning fabric
 
 (2) Amber Professional Pellon Non-Woven Rolls
 
-4. Circuit components
+###Circuit components
 
 (2) TIP120 Power Darlington Transistors
 (2) NPN Bipolar Transistors (PN2222) 
@@ -30,7 +30,7 @@ Parts List (Updated 11/18/2014)
 
 -----
 
-Price List (Updated 11/18/2014)
+###(Updated 11/18/2014)
 
 $24.99 (1) Arduino Uno Rev3 
 $24.99 (1) Arduino Motor Shield Rev3
