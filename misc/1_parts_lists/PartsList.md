@@ -27,6 +27,8 @@
 (2) LM317TG voltage regulators
 (2) Heatsinks TO-220
 (2) 0.1uF capacitors
+(2) Sharp GP2Y0A21YK0F IR Range Sensors
+(2) SIRC-01 Sharp GP2 IR Sensor Cables
 
 -----
 
@@ -48,5 +50,7 @@ $ 1.95 (1) SPDT switch
 $ 7.80 (2) LM317TG voltage regulators
 $ 3.80 (2) Heatsinks TO-220
 $  .50 (2) 0.1uF capacitors
+$19.90 (2) Sharp GP2Y0A21YK0F IR Range Sensors
+$ 3.90 (2) SIRC-01 Sharp GP2 IR Sensor Cables
 
-$184.67 Total
+$208.47 Total
