@@ -1,14 +1,14 @@
 ###Cleaner Parameters:
 
--Capstan-less dual-motor spindle drivetrain
+- Capstan-less dual-motor spindle drivetrain
 
--Leader sensing system 
+- Leader sensing system 
 
--Automatically stop and reverse when tape is nearing end
+- Automatically stop and reverse when tape is nearing end
 
--Tape speed and tension monitoring (approximately 120 ips on average). Tension sensor arm measures tape tension.
+- Tape speed and tension monitoring (approximately 120 ips on average). Tension sensor arm measures tape tension.
 
--Two cleaning stations at center with automatic advance, forward, rewind
+- Two cleaning stations at center with automatic advance, forward, rewind
 
--Adjustable spindle flanges based on format
+- Adjustable spindle flanges based on format
 
