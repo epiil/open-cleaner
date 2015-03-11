@@ -48,6 +48,8 @@ module top()
 			circle(h=5, d=12.7, center = true, $fs=.01);
              translate([101.6,-50.8])
 			circle(h=5, d=12.7, center = true, $fs=.01);
+            translate([-152.4,88.9,0])
+			square(size=[50.8, 12.7], center = true, $fs=.01);
 		}
 	}
 }
