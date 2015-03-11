@@ -1,5 +1,10 @@
 ###History
 
+
+2015-03-10
+
++ Added additional infrared sensors for tape detection (determines resolution of empty hub/full hub)
+
 2014-11-17
 
 -----
