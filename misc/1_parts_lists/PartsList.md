@@ -3,6 +3,8 @@
 ###Enclosure
 
 - (1) 350DT 16"W x 16"D aluminum desktop enclosure, natural finish
+- Chassis: Extruded Aluminum (6063 T6)
+- Top/Bottom/Endplates: Aluminum (5052 H32)
 
 ###Main circuit boards / microcontrollers
 
