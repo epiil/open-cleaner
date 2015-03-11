@@ -168,31 +168,31 @@ module guiderollers()
 		color("white")
 		{
              translate([-152.4,141.2875,0])
-			cylinder(h=15, d=6.35, $fs=.01);
+			cylinder(h=20, d=6.35, $fs=.01);
              translate([152.4,-141.2875,0])
-			cylinder(h=15, d=6.35, $fs=.01);
+			cylinder(h=20, d=6.35, $fs=.01);
              translate([-76.2,69.85,0])
-			cylinder(h=15, d=6.35, $fs=.01);
+			cylinder(h=20, d=6.35, $fs=.01);
              translate([76.2,-69.85,0])
-			cylinder(h=15, d=6.35, $fs=.01);
+			cylinder(h=20, d=6.35, $fs=.01);
              translate([-25.4,19.05,0])
-			cylinder(h=15, d=6.35, $fs=.01);
+			cylinder(h=20, d=6.35, $fs=.01);
              translate([25.4,-19.05,0])
-			cylinder(h=15, d=6.35, $fs=.01);
+			cylinder(h=20, d=6.35, $fs=.01);
              translate([-88.9,0,0])
-			cylinder(h=15, d=6.35, $fs=.01);
+			cylinder(h=20, d=6.35, $fs=.01);
              translate([88.9,0,0])
-			cylinder(h=15, d=6.35, $fs=.01);
+			cylinder(h=20, d=6.35, $fs=.01);
              translate([-50.8,38.1,0])
-			cylinder(h=15, d=6.35, $fs=.01);
+			cylinder(h=20, d=6.35, $fs=.01);
              translate([50.8,-38.1,0])
-			cylinder(h=15, d=6.35, $fs=.01);
+			cylinder(h=20, d=6.35, $fs=.01);
              translate([-101.6,50.8,0])
-			cylinder(h=15, d=12.7, $fs=.01);
+			cylinder(h=20, d=12.7, $fs=.01);
              translate([101.6,-50.8,0])
-			cylinder(h=15, d=12.7, $fs=.01);
+			cylinder(h=20, d=12.7, $fs=.01);
             translate([-152.4,88.9,0])
-			cylinder(h=15, d=6.35, $fs=.01);
+			cylinder(h=20, d=6.35, $fs=.01);
 		}
 		union() 
 		{
