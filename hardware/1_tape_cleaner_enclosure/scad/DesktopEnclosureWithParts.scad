@@ -194,7 +194,8 @@ module guiderollers()
             translate([-152.4,88.9,0])
 			cylinder(h=38, d=23, $fs=.01);
 		}
-		union() 
+		union()
+        color("white")
 		{
              translate([-152.4,141.2875,0])
 			cylinder(h=80, d=6.35, center = true, $fs=.01);
@@ -227,5 +228,54 @@ module guiderollers()
 }
 
 guiderollers();
+
+module guiderollerscrews()
+{
+	difference() 
+	{
+		union() 
+		color("grey")
+		{
+			translate([114.3,114.3,0])
+			cylinder(h=82, d=6.35, center = true, $fs=.01);
+             translate([-114.3,-114.3,0])
+			cylinder(h=82, d=6.35, center = true, $fs=.01);
+             translate([-152.4,141.2875,0])
+			cylinder(h=80, d=6.35, center = true, $fs=.01);
+             translate([152.4,-141.2875,0])
+			cylinder(h=82, d=6.35, center = true, $fs=.01);
+             translate([-76.2,69.85,0])
+			cylinder(h=82, d=6.35, center = true, $fs=.01);
+             translate([76.2,-69.85,0])
+			cylinder(h=82, d=6.35, center = true, $fs=.01);
+             translate([-25.4,19.05,0])
+			cylinder(h=82, d=6.35, center = true, $fs=.01);
+             translate([25.4,-19.05,0])
+			cylinder(h=82, d=6.35, center = true, $fs=.01);
+             translate([-88.9,0,0])
+			cylinder(h=82, d=6.35, center = true, $fs=.01);
+             translate([88.9,0,0])
+			cylinder(h=82, d=6.35, center = true, $fs=.01);
+             translate([-70,25,0])
+			cylinder(h=82, d=6.35, center = true, $fs=.01);
+             translate([70,-25,0])
+			cylinder(h=82, d=6.35, center = true, $fs=.01);
+             translate([-101.6,50.8,0])
+			cylinder(h=82, d=6.35, center = true, $fs=.01);
+             translate([101.6,-50.8,0])
+			cylinder(h=82, d=6.35, center = true, $fs=.01);
+            translate([-152.4,88.9,0])
+			cylinder(h=82, d=6.35, center = true, $fs=.01);
+		}
+		union()
+
+		{
+
+		}
+	}
+}
+
+guiderollerscrews();
+
 
 
