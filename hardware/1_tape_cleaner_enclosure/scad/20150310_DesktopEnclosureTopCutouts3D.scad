@@ -42,9 +42,9 @@ module top()
 			cylinder(h=5, d=6.35, center = true, $fs=.01);
              translate([88.9,0,0])
 			cylinder(h=5, d=6.35, center = true, $fs=.01);
-             translate([-50.8,38.1,0])
+             translate([-70,25,0])
 			cylinder(h=5, d=6.35, center = true, $fs=.01);
-             translate([50.8,-38.1,0])
+             translate([70,-25,0])
 			cylinder(h=5, d=6.35, center = true, $fs=.01);
              translate([-101.6,50.8,0])
 			cylinder(h=5, d=12.7, center = true, $fs=.01);

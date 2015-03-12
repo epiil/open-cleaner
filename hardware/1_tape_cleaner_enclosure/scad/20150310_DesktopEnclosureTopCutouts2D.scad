@@ -40,9 +40,9 @@ module top()
 			circle(h=5, d=6.35, center = true, $fs=.01);
              translate([88.9,0])
 			circle(h=5, d=6.35, center = true, $fs=.01);
-             translate([-50.8,38.1])
+             translate([-70,25])
 			circle(h=5, d=6.35, center = true, $fs=.01);
-             translate([50.8,-38.1])
+             translate([70,-25.1])
 			circle(h=5, d=6.35, center = true, $fs=.01);
              translate([-101.6,50.8])
 			circle(h=5, d=12.7, center = true, $fs=.01);
