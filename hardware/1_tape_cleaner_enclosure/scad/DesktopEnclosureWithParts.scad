@@ -66,26 +66,26 @@ module top()
 			cylinder(h=5, d=6.35, center = true, $fs=.01); //cleaning path guide roller E
              translate([0, -88.9,0])
 			cylinder(h=5, d=6.35, center = true, $fs=.01); //cleaning path guide roller F
-             translate([-25,70,0])  
-			cylinder(h=5, d=6.35, center = true, $fs=.01); //cleaning path guide roller G
-             translate([25,-70,0])
-			cylinder(h=5, d=6.35, center = true, $fs=.01); //cleaning path guide roller H
-             translate([-50.8,101.6,0]) 
-			cylinder(h=5, d=12.7, center = true, $fs=.01); //cleaning path guide roller I
-             translate([50.8,-101.6,0])
-			cylinder(h=5, d=12.7, center = true, $fs=.01); //cleaning path guide roller J
-            translate([-88.9, 152.4,0]) 
+             translate([-30,65,0])  
+			cylinder(h=5, d=6.35, center = true, $fs=.01); //cleaning path guide roller G //supply-side supply pellon
+             translate([30,-65,0])
+			cylinder(h=5, d=6.35, center = true, $fs=.01); //cleaning path guide roller H //takeup-side supply pellon
+             translate([-50.8,108,0]) 
+			cylinder(h=5, d=12.7, center = true, $fs=.01); //cleaning path guide roller I //supply-side takeup pellon
+             translate([50.8,-108,0])
+			cylinder(h=5, d=12.7, center = true, $fs=.01); //cleaning path guide roller J //takeup-side takeup pellon
+            translate([-83.3, 152.4,0]) 
 			rotate(90) cube(size=[50.8, 12.7, 5], center = true, $fs=.01); //tension arm roller cutout
            translate([-25.4, 152.4,0]) 
 			cylinder(h=5, d=6.35, center = true, $fs=.01); //supplyside initial roller
 	        translate([-25.4,-25.4,0])
-			rotate(45) cube(size=[40, 5, 5], center = true, $fs=.01); //IR sensor takeup side
+			rotate(45) cube(size=[40, 10.5, 5], center = true, $fs=.01); //IR sensor takeup side
 	        translate([25.4, 25.4,0])
-			rotate(45) cube(size=[40, 5, 5], center = true, $fs=.01); //IR sensor supply side
+			rotate(45) cube(size=[40, 10.5, 5], center = true, $fs=.01); //IR sensor supply side
 	        translate([-127, 127,0])
-			rotate(45) cube(size=[35, 5, 5], center = true, $fs=.01); //photoop sensor takeup side
+			rotate(45) cube(size=[35, 5.1, 5], center = true, $fs=.01); //photoop sensor takeup side
 	        translate([127, -127,0])
-			rotate(45) cube(size=[35, 5, 5], center = true, $fs=.01); //photoop sensor supply side
+			rotate(45) cube(size=[35, 5.1, 5], center = true, $fs=.01); //photoop sensor supply side
 		}
 	}
 }
@@ -195,15 +195,15 @@ module guiderollers() //guide rollers
 			cylinder(h=38, d=12.6, $fs=.01); //cleaning path guide roller E
              translate([0, -88.9,0])
 			cylinder(h=38, d=12.6, $fs=.01); //cleaning path guide roller F
-             translate([-25,70,0])
-			cylinder(h=38, d=13.5, $fs=.01); //cleaning path guide roller G
-             translate([25,-70,0])
-			cylinder(h=38, d=13.5, $fs=.01); //cleaning path guide roller H
-             translate([-50.8,101.6,0])
-			cylinder(h=38, d=13.5, $fs=.01); //cleaning path guide roller I
-             translate([50.8,-101.6,0])
-			cylinder(h=38, d=13.5, $fs=.01); //cleaning path guide roller J
-            translate([-88.9, 152.4,0])
+             translate([-30,65,0])
+			cylinder(h=38, d=13.5, $fs=.01); //cleaning path guide roller G //supply-side supply pellon
+             translate([30,-65,0])
+			cylinder(h=38, d=13.5, $fs=.01); //cleaning path guide roller H //takeup-side supply pellon
+             translate([-50.8,108,0])
+			cylinder(h=38, d=13.5, $fs=.01); //cleaning path guide roller I //supply-side takeup pellon
+             translate([50.8,-108,0])
+			cylinder(h=38, d=13.5, $fs=.01); //cleaning path guide roller J //takeup-side takeup pellon
+            translate([-83.3, 152.4,0])
 			cylinder(h=38, d=23, $fs=.01); //tension arm roller 
              translate([-25.4, 152.4,0]) 
 			cylinder(h=38, d=23, $fs=.01); //supplyside initial roller
@@ -227,15 +227,15 @@ module guiderollers() //guide rollers
 			cylinder(h=80, d=6.35, center = true, $fs=.01); //cleaning path guide roller E
              translate([0, -88.9,0])
 			cylinder(h=80, d=6.35, center = true, $fs=.01); //cleaning path guide roller F
-             translate([-25,70,0])
-			cylinder(h=80, d=6.35, center = true, $fs=.01); //cleaning path guide roller G
-             translate([25,-70,0])
-			cylinder(h=80, d=6.35, center = true, $fs=.01); //cleaning path guide roller H
-             translate([-50.8,101.6,0])
-			cylinder(h=80, d=6.35, center = true, $fs=.01); //cleaning path guide roller I
-             translate([50.8,-101.6,0])
-			cylinder(h=80, d=6.35, center = true, $fs=.01); //cleaning path guide roller J
-            translate([-88.9, 152.4,0])
+             translate([-30,65,0])
+			cylinder(h=80, d=6.35, center = true, $fs=.01); //cleaning path guide roller G //supply-side supply pellon
+             translate([30,-65,0])
+			cylinder(h=80, d=6.35, center = true, $fs=.01); //cleaning path guide roller H //takeup-side supply pellon
+             translate([-50.8,108,0])
+			cylinder(h=80, d=6.35, center = true, $fs=.01); //cleaning path guide roller I //supply-side takeup pellon
+             translate([50.8,-108,0])
+			cylinder(h=80, d=6.35, center = true, $fs=.01); //cleaning path guide roller J //takeup-side takeup pellon
+            translate([-83.3, 152.4,0])
 			cylinder(h=80, d=6.35, center = true, $fs=.01); //tension arm roller
 			translate([-25.4, 152.4,0]) 
 			cylinder(h=80, d=6.35, center = true, $fs=.01); //supplyside initial roller
@@ -272,15 +272,15 @@ module guiderollerscrews()
 			cylinder(h=82, d=6.35, center = true, $fs=.01); //cleaning path guide roller E
              translate([0, -88.9,0])
 			cylinder(h=82, d=6.35, center = true, $fs=.01); //cleaning path guide roller F
-             translate([-25,70,0])
-			cylinder(h=82, d=6.35, center = true, $fs=.01); //cleaning path guide roller G
-             translate([25,-70,0])
-			cylinder(h=82, d=6.35, center = true, $fs=.01); //cleaning path guide roller H
-             translate([-50.8,101.6,0])
-			cylinder(h=82, d=6.35, center = true, $fs=.01); //cleaning path guide roller I
-             translate([50.8,-101.6,0])
-			cylinder(h=82, d=6.35, center = true, $fs=.01); //cleaning path guide roller J
-            translate([-88.9, 152.4,0])
+             translate([-30,65,0])
+			cylinder(h=82, d=6.35, center = true, $fs=.01); //cleaning path guide roller G //supply-side supply pellon
+             translate([30,-65,0])
+			cylinder(h=82, d=6.35, center = true, $fs=.01); //cleaning path guide roller H //takeup-side supply pellon
+             translate([-50.8,108,0])
+			cylinder(h=82, d=6.35, center = true, $fs=.01); //cleaning path guide roller I //supply-side takeup pellon
+             translate([50.8,-108,0])
+			cylinder(h=82, d=6.35, center = true, $fs=.01); //cleaning path guide roller J //takeup-side takeup pellon
+            translate([-83.3, 152.4,0])
 			cylinder(h=82, d=6.35, center = true, $fs=.01); //tension arm roller
              translate([-25.4, 152.4,0]) 
 			cylinder(h=82, d=6.35, center = true, $fs=.01); //supplyside initial roller
@@ -302,14 +302,14 @@ module pellonrolls()
 		union() 
 		color("white")
 		{
-			translate([-50.8,101.6,0]) 
-			cylinder(h=38, d=40, $fs=.01);
-             translate([50.8,-101.6,0])
-			cylinder(h=38, d=40, $fs=.01);
-			  translate([-25,70,0])
-			cylinder(h=38, d=40, $fs=.01);
-             translate([25,-70,0])
-			cylinder(h=38, d=40, $fs=.01);
+			translate([-50.8,108,0]) 
+			cylinder(h=38, d=40, $fs=.01); //supply-side takeup pellon
+             translate([50.8,-108,0])
+			cylinder(h=38, d=40, $fs=.01); //takeup-side takeup pellon
+			  translate([-30,65,0])
+			cylinder(h=38, d=40, $fs=.01); //supply-side supply pellon
+             translate([30,-65,0])
+			cylinder(h=38, d=40, $fs=.01); //takeup-side supply pellon
 		}
 		union()
         color("white")
