@@ -17,6 +17,7 @@ module top()
 	{
 		union() 
 		{
+			color("grey")
 			cube(size=[outerWidth, outerLength, outerHeight], center = true, $fs=.01);
 		}
 		union() 
@@ -49,6 +50,8 @@ module top()
 			cylinder(h=5, d=12.7, center = true, $fs=.01);
              translate([101.6,-50.8,0])
 			cylinder(h=5, d=12.7, center = true, $fs=.01);
+            translate([-152.4,88.9,0])
+			cube(size=[50.8, 12.7, 5], center = true, $fs=.01);
 		}
 	}
 }
