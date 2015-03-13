@@ -50,7 +50,7 @@ module top()
              translate([50.8,-108])
 			circle(h=5, d=12.7, center = true, $fs=.01); //cleaning path guide roller J //takeup-side takeup pellon
             translate([-83.3, 152.4]) 
-			rotate(90) square(size=[50.8, 12.7], center = true, $fs=.01); //tension arm roller cutout
+			rotate(90) square(size=[50.8, 10.5], center = true, $fs=.01); //tension arm roller cutout
            translate([-25.4, 152.4]) 
 			circle(h=5, d=6.35, center = true, $fs=.01); //supplyside initial roller
 	        translate([-25.4,-25.4])
