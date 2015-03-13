@@ -75,11 +75,15 @@ module top()
              translate([50.8,-101.6,0])
 			cylinder(h=5, d=12.7, center = true, $fs=.01); //cleaning path guide roller J
             translate([-88.9, 152.4,0]) 
-			cube(size=[50.8, 12.7, 5], center = true, $fs=.01); //tension arm roller cutout
+			rotate(90) cube(size=[50.8, 12.7, 5], center = true, $fs=.01); //tension arm roller cutout
 	        translate([-25.4,-25.4,0])
-			cylinder(h=5, d=5, center = true, $fs=.01); //IR sensor takeup side
+			rotate(45) cube(size=[40, 5, 5], center = true, $fs=.01); //IR sensor takeup side
 	        translate([25.4, 25.4,0])
-			cylinder(h=5, d=5, center = true, $fs=.01); //IR sensor supply side
+			rotate(45) cube(size=[40, 5, 5], center = true, $fs=.01); //IR sensor supply side
+	        translate([-127, 127,0])
+			rotate(45) cube(size=[20, 5, 5], center = true, $fs=.01); //photoop sensor takeup side
+	        translate([127, -127,0])
+			rotate(45) cube(size=[20, 5, 5], center = true, $fs=.01); //photoop sensor supply side
 		}
 	}
 }
