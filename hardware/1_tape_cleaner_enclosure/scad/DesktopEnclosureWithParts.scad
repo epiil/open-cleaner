@@ -205,6 +205,8 @@ module guiderollers() //guide rollers
 			cylinder(h=38, d=13.5, $fs=.01); //cleaning path guide roller J
             translate([-88.9, 152.4,0])
 			cylinder(h=38, d=23, $fs=.01); //tension arm roller 
+             translate([-25.4, 152.4,0]) 
+			cylinder(h=38, d=23, $fs=.01); //supplyside initial roller
 		}
 		union()
         color("silver")
@@ -235,6 +237,8 @@ module guiderollers() //guide rollers
 			cylinder(h=80, d=6.35, center = true, $fs=.01); //cleaning path guide roller J
             translate([-88.9, 152.4,0])
 			cylinder(h=80, d=6.35, center = true, $fs=.01); //tension arm roller
+			translate([-25.4, 152.4,0]) 
+			cylinder(h=80, d=6.35, center = true, $fs=.01); //supplyside initial roller
 		}
 	}
 }
@@ -278,6 +282,8 @@ module guiderollerscrews()
 			cylinder(h=82, d=6.35, center = true, $fs=.01); //cleaning path guide roller J
             translate([-88.9, 152.4,0])
 			cylinder(h=82, d=6.35, center = true, $fs=.01); //tension arm roller
+             translate([-25.4, 152.4,0]) 
+			cylinder(h=82, d=6.35, center = true, $fs=.01); //supplyside initial roller
 		}
 		union()
 
