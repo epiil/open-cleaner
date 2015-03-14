@@ -41,7 +41,7 @@ module top()
 	{
 		union() 
 		{
-			color("dark grey")
+			color("grey")
 			cube(size=[outerWidth, outerLength, outerHeight], center = true, $fs=.01);
 		}
 		union() 
@@ -357,6 +357,72 @@ module irsensors()
 }
 
 irsensors();
+
+module bottom()
+{
+	difference() 
+	{
+		union() 
+		{
+			color("grey")
+			translate([0,0,-88.138]) cube(size=[outerWidth, outerLength, outerHeight], center = true, $fs=.01);
+		}
+		union() 
+		{
+
+		}
+	}
+}
+
+bottom();
+
+module spindlemotors()
+{
+	difference() 
+	{
+		union() 
+		{
+			color("gold")
+			translate([114.3,114.3,-30])
+			cylinder(h=45.38, d=40.68, center = true, $fs=.01); //supply motor spindle cutout
+             translate([-114.3,-114.3,-30])
+			cylinder(h=45.38, d=40.68, center = true, $fs=.01); //takeup motor supply cutout
+		}
+		union() 
+		{
+
+		}
+	}
+}
+
+spindlemotors();
+
+module pellonmotors()
+{
+	difference() 
+	{
+		union() 
+		{
+			color("gold")
+			translate([-30,65,-30])
+			cylinder(h=45.38, d=25, center = true, $fs=.01); 
+               translate([30,-65,-30])
+			cylinder(h=45.38, d=25, center = true, $fs=.01); 
+			translate([-50.8,108,-30])
+			cylinder(h=45.38, d=25, center = true, $fs=.01); 
+               translate([50.8,-108,-30])
+			cylinder(h=45.38, d=25, center = true, $fs=.01); 
+		}
+		union() 
+		{
+
+		}
+	}
+}
+
+pellonmotors();
+
+
 
 
 
