@@ -436,6 +436,8 @@ module frontpanel()
 		{
 			translate([0,205,-44])
 			cube(size=[71, 5, 26.3], center = true, $fs=.01);
+			translate([170,205,-44])
+			cube(size=[12.5, 5, 17.2], center = true, $fs=.01);
 		}
 	}
 }
