@@ -34,6 +34,8 @@ addendum = 3/2;
 dedendum = 3/2;
 shafttoothWidth = 3/2;
 
+include<arduino.scad>
+
 
 module top()
 {
@@ -41,11 +43,12 @@ module top()
 	{
 		union() 
 		{
-			color("grey")
+			color([.5,.5,.5,1])
 			cube(size=[outerWidth, outerLength, outerHeight], center = true, $fs=.01);
 		}
 		union() 
 		{
+			color([.5,.5,.5,.6])
 			translate([114.3,114.3,0])
 			cylinder(h=5, d=25.4, center = true, $fs=.01); //supply motor spindle cutout
              translate([-114.3,-114.3,0])
@@ -252,38 +255,38 @@ module guiderollerscrews()
 		union() 
 		color("silver")
 		{
-			translate([114.3,114.3,0])
-			cylinder(h=82, d=6.35, center = true, $fs=.01); //supply motor spindle cutout
-             translate([-114.3,-114.3,0])
-			cylinder(h=82, d=6.35, center = true, $fs=.01); //takeup motor supply cutout
-             translate([-141.2875,152.4,0])
-			cylinder(h=80, d=6.35, center = true, $fs=.01); //supply corner roller 
-             translate([141.2875,-152.4,0])
-			cylinder(h=82, d=6.35, center = true, $fs=.01); // takeup corner roller
-             translate([-69.85, 76.2,0])
-			cylinder(h=82, d=6.35, center = true, $fs=.01); //cleaning path guide roller A
-             translate([69.85,-76.2,0])
-			cylinder(h=82, d=6.35, center = true, $fs=.01); //cleaning path guide roller B
-             translate([-19.05,25.4,0])
-			cylinder(h=82, d=6.35, center = true, $fs=.01); //cleaning path guide roller C
-             translate([19.05, -25.4,0])
-			cylinder(h=82, d=6.35, center = true, $fs=.01); //cleaning path guide roller D
-             translate([0,88.9,0])
-			cylinder(h=82, d=6.35, center = true, $fs=.01); //cleaning path guide roller E
-             translate([0, -88.9,0])
-			cylinder(h=82, d=6.35, center = true, $fs=.01); //cleaning path guide roller F
-             translate([-30,65,0])
-			cylinder(h=82, d=6.35, center = true, $fs=.01); //cleaning path guide roller G //supply-side supply pellon
-             translate([30,-65,0])
-			cylinder(h=82, d=6.35, center = true, $fs=.01); //cleaning path guide roller H //takeup-side supply pellon
-             translate([-50.8,108,0])
-			cylinder(h=82, d=6.35, center = true, $fs=.01); //cleaning path guide roller I //supply-side takeup pellon
-             translate([50.8,-108,0])
-			cylinder(h=82, d=6.35, center = true, $fs=.01); //cleaning path guide roller J //takeup-side takeup pellon
-            translate([-83.3, 152.4,0])
-			cylinder(h=82, d=6.35, center = true, $fs=.01); //tension arm roller
-             translate([-25.4, 152.4,0]) 
-			cylinder(h=82, d=6.35, center = true, $fs=.01); //supplyside initial roller
+			translate([114.3,114.3,16])
+			cylinder(h=49.30, d=6.35, center = true, $fs=.01); //supply motor spindle cutout
+             translate([-114.3,-114.3,16])
+			cylinder(h=49.30, d=6.35, center = true, $fs=.01); //takeup motor supply cutout
+             translate([-141.2875,152.4,16])
+			cylinder(h=49.30, d=6.35, center = true, $fs=.01); //supply corner roller 
+             translate([141.2875,-152.4,16])
+			cylinder(h=49.30, d=6.35, center = true, $fs=.01); // takeup corner roller
+             translate([-69.85, 76.2,16])
+			cylinder(h=49.30, d=6.35, center = true, $fs=.01); //cleaning path guide roller A
+             translate([69.85,-76.2,16])
+			cylinder(h=49.30, d=6.35, center = true, $fs=.01); //cleaning path guide roller B
+             translate([-19.05,25.4,16])
+			cylinder(h=49.30, d=6.35, center = true, $fs=.01); //cleaning path guide roller C
+             translate([19.05, -25.4,16])
+			cylinder(h=49.30, d=6.35, center = true, $fs=.01); //cleaning path guide roller D
+             translate([0,88.9,16])
+			cylinder(h=49.30, d=6.35, center = true, $fs=.01); //cleaning path guide roller E
+             translate([0, -88.9,16])
+			cylinder(h=49.30, d=6.35, center = true, $fs=.01); //cleaning path guide roller F
+             translate([-30,65,16])
+			cylinder(h=49.30, d=6.35, center = true, $fs=.01); //cleaning path guide roller G //supply-side supply pellon
+             translate([30,-65,16])
+			cylinder(h=49.30, d=6.35, center = true, $fs=.01); //cleaning path guide roller H //takeup-side supply pellon
+             translate([-50.8,108,16])
+			cylinder(h=49.30, d=6.35, center = true, $fs=.01); //cleaning path guide roller I //supply-side takeup pellon
+             translate([50.8,-108,16])
+			cylinder(h=49.30, d=6.35, center = true, $fs=.01); //cleaning path guide roller J //takeup-side takeup pellon
+            translate([-83.3, 152.4,16])
+			cylinder(h=49.30, d=6.35, center = true, $fs=.01); //tension arm roller
+             translate([-25.4, 152.4,16]) 
+			cylinder(h=49.30, d=6.35, center = true, $fs=.01); //supplyside initial roller
 		}
 		union()
 
@@ -438,6 +441,15 @@ module frontpanel()
 			cube(size=[71, 5, 26.3], center = true, $fs=.01);
 			translate([170,205,-44])
 			cube(size=[12.5, 5, 17.2], center = true, $fs=.01);
+			translate([36.195,205,-29.695])
+			sphere(d=5, center = true, $fs=.01);
+			translate([-36.195,205,-29.695])
+			sphere(d=5, center = true, $fs=.01);
+			translate([36.195,205,-58.305])
+			sphere(d=5, center = true, $fs=.01);
+			translate([-36.195,205,-58.305])
+			sphere(d=5, center = true, $fs=.01);
+
 		}
 	}
 }
@@ -463,15 +475,110 @@ module backpanel()
 
 backpanel();
 
-module sideleftpanel()
+//module sideleftpanel()
+//{
+//	difference() 
+//	{
+//		union() 
+//		{
+//			color("grey")
+//			translate([205,0,-44])
+//			rotate(90) cube(size=[406.4, 3, 88.138], center = true, $fs=.01);
+//		}
+//		union() 
+//		{
+//
+//		}
+//	}
+//}
+
+//sideleftpanel();
+
+//module siderightpanel()
+//{
+//	difference() 
+//	{
+//		union() 
+//		{
+//			color("grey")
+//			translate([-205,0,-44])
+//			rotate(90) cube(size=[406.4, 3, 88.138], center = true, $fs=.01);
+//		}
+//		union() 
+//		{
+//
+//		}
+//	}
+//}
+
+//siderightpanel();
+
+module LED()
 {
 	difference() 
 	{
 		union() 
 		{
-			color("grey")
-			translate([205,0,-44])
-			rotate(90) cube(size=[406.4, 3, 88.138], center = true, $fs=.01);
+			color("black")
+			translate([0,205,-44])
+			cube(size=[71, 5, 26.3], center = true, $fs=.01);
+			color("red")
+			translate([0,203,-44])
+			cube(size=[80.07, 2, 36.07], center = true, $fs=.01);
+		}
+		union() 
+		{
+            	translate([36.195,203,-29.695])
+			sphere(d=5, center = true, $fs=.01);
+			translate([-36.195,203,-29.695])
+			sphere(d=5, center = true, $fs=.01);
+			translate([36.195,203,-58.305])
+			sphere(d=5, center = true, $fs=.01);
+			translate([-36.195,203,-58.305])
+			sphere(d=5, center = true, $fs=.01);
+		}
+	}
+}
+
+LED();
+
+module arduino() //Arduino and motor shield
+{
+	difference()
+	{
+		union()
+
+		{
+			translate([110, -30, -78]) rotate(180) Arduino(1, 0, 0);
+			color("tan") translate([110, -30, -60]) rotate(180) Arduino(1, 1, 1);
+			{
+
+			}
+		}
+		
+		union()
+
+		{
+
+			{
+			}
+		}
+	}
+}
+
+
+
+arduino(); 
+
+module onoffswitch()
+{
+	difference() 
+	{
+		union() 
+		color("black")
+		{
+			translate([170,202,-44])
+			cube(size=[12.5, 15, 17.2], center = true, $fs=.01);
 		}
 		union() 
 		{
@@ -480,17 +587,19 @@ module sideleftpanel()
 	}
 }
 
-sideleftpanel();
+onoffswitch();
 
-module siderightpanel()
+module servos()
 {
 	difference() 
 	{
 		union() 
+		color("black")
 		{
-			color("grey")
-			translate([-205,0,-44])
-			rotate(90) cube(size=[406.4, 3, 88.138], center = true, $fs=.01);
+			translate([114.3,79,-25])
+			cube([40,19.5,36.5], center = true, $fs=.01); 
+                 translate([-114.3,-79,-25])
+			cube([40,19.5,36.5], center = true, $fs=.01); 
 		}
 		union() 
 		{
@@ -499,7 +608,28 @@ module siderightpanel()
 	}
 }
 
-siderightpanel();
+servos();
+
+module tensionarm()
+{
+	difference() 
+	{
+		union() 
+		color("silver")
+		{
+            translate([-83.3, 152.4,-25]) 
+		 rotate(90) cube(size=[60, 20, 36.5], center = true, $fs=.01);
+		}
+		union() 
+		{
+
+		}
+	}
+}
+
+tensionarm();
+
+
 
 
 
