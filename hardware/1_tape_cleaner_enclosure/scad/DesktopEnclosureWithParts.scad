@@ -422,6 +422,84 @@ module pellonmotors()
 
 pellonmotors();
 
+module frontpanel()
+{
+	difference() 
+	{
+		union() 
+		{
+			color("grey")
+			translate([0,205,-44])
+			cube(size=[406.4, 3, 88.138], center = true, $fs=.01);
+		}
+		union() 
+		{
+			translate([0,205,-44])
+			cube(size=[71, 5, 26.3], center = true, $fs=.01);
+		}
+	}
+}
+
+frontpanel();
+
+module backpanel()
+{
+	difference() 
+	{
+		union() 
+		{
+			color("grey")
+			translate([0,-205,-44])
+			cube(size=[406.4, 3, 88.138], center = true, $fs=.01);
+		}
+		union() 
+		{
+
+		}
+	}
+}
+
+backpanel();
+
+module sideleftpanel()
+{
+	difference() 
+	{
+		union() 
+		{
+			color("grey")
+			translate([205,0,-44])
+			rotate(90) cube(size=[406.4, 3, 88.138], center = true, $fs=.01);
+		}
+		union() 
+		{
+
+		}
+	}
+}
+
+sideleftpanel();
+
+module siderightpanel()
+{
+	difference() 
+	{
+		union() 
+		{
+			color("grey")
+			translate([-205,0,-44])
+			rotate(90) cube(size=[406.4, 3, 88.138], center = true, $fs=.01);
+		}
+		union() 
+		{
+
+		}
+	}
+}
+
+siderightpanel();
+
+
 
 
 
