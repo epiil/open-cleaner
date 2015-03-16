@@ -58,21 +58,21 @@ module top()
              	translate([136,-152.4,0])
 			cylinder(h=5, d=6.35, center = true, $fs=.01); // takeup corner roller
              	translate([-69, 77.7,0])  
-			cylinder(h=5, d=6.35, center = true, $fs=.01); //cleaning path guide roller A
+			rotate(135) cube([6.35,20,5], center = true, $fs=.01); //cleaning path guide roller A
              	translate([69,-77.7,0])
-			cylinder(h=5, d=6.35, center = true, $fs=.01); //cleaning path guide roller B
+			rotate(135) cube([6.35,20,5], center = true, $fs=.01); //cleaning path guide roller B
              	translate([-18.2, 26.9,0])
-			cylinder(h=5, d=6.35, center = true, $fs=.01); //cleaning path guide roller C
+			rotate(135) cube([6.35,20,5], center = true, $fs=.01); //cleaning path guide roller C
              	translate([18.2, -26.9,0]) 
-			cylinder(h=5, d=6.35, center = true, $fs=.01); //cleaning path guide roller D
+			rotate(135) cube([6.35,20,5], center = true, $fs=.01); //cleaning path guide roller D
              	translate([-7,92,0]) 
 			cylinder(h=5, d=6.35, center = true, $fs=.01); //cleaning path guide roller E
              	translate([7,-92,0])
 			cylinder(h=5, d=6.35, center = true, $fs=.01); //cleaning path guide roller F
              	translate([-30,65,0])  
-			cylinder(h=5, d=6.35, center = true, $fs=.01); //cleaning path guide roller G //supply-side supply pellon
+			cylinder(h=5, d=12.7, center = true, $fs=.01); //cleaning path guide roller G //supply-side supply pellon
              	translate([30,-65,0])
-			cylinder(h=5, d=6.35, center = true, $fs=.01); //cleaning path guide roller H //takeup-side supply pellon
+			cylinder(h=5, d=12.7, center = true, $fs=.01); //cleaning path guide roller H //takeup-side supply pellon
              	translate([-50.8,108,0]) 
 			cylinder(h=5, d=12.7, center = true, $fs=.01); //cleaning path guide roller I //supply-side takeup pellon
              	translate([50.8,-108,0])

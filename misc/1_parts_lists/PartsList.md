@@ -36,6 +36,10 @@
 - (2) Sharp GP2Y0A21YK0F IR Range Sensors
 - (2) SIRC-01 Sharp GP2 IR Sensor Cables
 
+###Misc.
+
+- (1) IEC 320 C14 Male Plug 3 Pins PCB Panel Power Inlet Socket Connector
+
 -----
 
 ###(Updated 11/18/2014)
