@@ -34,7 +34,7 @@ addendum = 3/2;
 dedendum = 3/2;
 shafttoothWidth = 3/2;
 
-include<arduino.scad>
+include<Arduino.scad>
 
 
 module top()
