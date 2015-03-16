@@ -2,7 +2,7 @@
 
 ##Repository Contents:
 
-- /hardware - contains .scad and .stl files for 3D CAD / parts printing. All 3D modeling is done with OpenSCAD (http://www.openscad.org/) and Tinkercad (https://tinkercad.com/). All circuit schematics are done with Fritzing (http://fritzing.org/home/)
+- /hardware - contains .scad, .dxf and .stl files for parts fabrication. All 2D/3D modeling is done with OpenSCAD (http://www.openscad.org/). All circuit schematics are done with Fritzing (http://fritzing.org/home/)
 
 - /software - contains .ino Arduino "sketches" and Arduino libraries (http://www.arduino.cc/)
 
