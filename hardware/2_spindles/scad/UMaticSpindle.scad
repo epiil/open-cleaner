@@ -34,6 +34,7 @@ module spindle()
 	difference()
 	{
 		union()
+		color("black")
 		{
 			cylinder(r=outerRadius, h=outerHeight, $fs=.01);
 			cylinder(d=innerDiam, h=innerHeight, $fs=.01);
@@ -49,10 +50,14 @@ module spindle()
 		}
 		
 		union()
+		color("black")
 		{
 			cylinder(r=shaftRadius, h=innerHeight*2+1, center=true);
 			translate([0,0,10/2]) spur(3, 8, 10);
 			if (centerShape==1) solid(10, 8);	
+			color("black") rotate([0,0,120]) cube([1.6,10.73,21], center=true);
+			color("black") rotate([0,0,240]) cube([1.6,10.73,21], center=true);
+			color("black") rotate([0,0,360]) cube([1.6,10.73,21], center=true);
 			{
 			}
 		}

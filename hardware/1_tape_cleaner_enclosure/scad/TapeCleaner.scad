@@ -50,9 +50,9 @@ module top()
 		{
 			color([.5,.5,.5,.6])
 			translate([114.3,114.3,0])
-			cylinder(h=5, d=58, center = true, $fs=.01); //supply motor spindle cutout
+			cylinder(h=5, d=61, center = true, $fs=.01); //supply motor spindle cutout
              	translate([-114.3,-114.3,0])
-			cylinder(h=5, d=58, center = true, $fs=.01); //takeup motor supply cutout
+			cylinder(h=5, d=61, center = true, $fs=.01); //takeup motor supply cutout
              	translate([-136,152.4,0]) 
 			cylinder(h=5, d=6.35, center = true, $fs=.01); //supply corner roller
              	translate([136,-152.4,0])
@@ -95,23 +95,29 @@ module top()
 
 top();
 
-module spindlesupply() //UMatic spindle for the supply side
+
+module spindlesupply() //UMatic spindle for the takeup side
 {
 	difference()
 	{
 		union()
-		color("black")
 		{
-			translate([-114.3,-114.3,0])
-			cylinder(r=outerRadius, h=outerHeight, $fs=.01);
-			translate([-114.3,-114.3,0])
-			cylinder(d=innerDiam, h=innerHeight, $fs=.01);
-			translate([-123.3,-114,0])
-			cylinder(h=innerHeight+prongHeight, r=prongRadius);
-			translate([-110.3,-122,0])
-			cylinder(h=innerHeight+prongHeight, r=prongRadius);
-			translate([-109.3,-106,0])
-			cylinder(h=innerHeight+prongHeight, r=prongRadius);
+		translate([-114.3,-114.3,0])
+		color("black") cylinder(h=4.8, d=57.25, $fs=.01);
+		translate([-114.3,-114.3,0])
+		color("black") cylinder(h=44, d=7.93, $fs=.01);
+		translate([-114.3,-114.3,44])
+		color("black") sphere(d=7.93, $fs=.01);
+		translate([-114.3,-114.3,-9])
+		color("black") cylinder(h=9, d=19.31, $fs=.01);
+		translate([-114.3,-114.3,0])
+		color("black") rotate([0,0,120]) cube([1.4,10.73,21], center=true);
+		translate([-114.3,-114.3,0])
+		color("black") rotate([0,0,240]) cube([1.4,10.73,21], center=true);
+		translate([-114.3,-114.3,0])
+		color("black") rotate([0,0,360]) cube([1.4,10.73,21], center=true);
+		translate([-114.3,-114.3,-19.31])
+		color("silver") cylinder(h=10, d=15.91, $fs=.01);
 			{
 
 			}
@@ -120,10 +126,16 @@ module spindlesupply() //UMatic spindle for the supply side
 		union()
 		color("black")
 		{
-			translate([-114.3,-114.3,0])
-			cylinder(r=shaftRadius, h=innerHeight*2+1, center=true);
-			translate([0,0,10/2]) spur(3, 8, 10);
-			if (centerShape==1) solid(10, 8);	
+		translate([-113.3,-118.2,0])
+		cube([1.4,7,10.8]);
+		translate([-114.3,-118.2,0])
+		cube([1.4,7,10.8]);
+		translate([-118.2,-113.3,0])
+		rotate([0,0,240]) cube([5,7,10.8]);
+		translate([-111.45,-111.45,0]) 
+		rotate([0,0,120]) cube([5,7,10.8]);
+		translate([-114.3,-114.3,-20])
+		cylinder(h=50, d=4, $fs=.01);
 			{
 			}
 		}
@@ -132,25 +144,60 @@ module spindlesupply() //UMatic spindle for the supply side
 
 
 
-spindlesupply(); 
+spindlesupply();
+
+module spindle2supply() //UMatic spindle for the takeup side
+{
+	difference()
+	{
+		union()
+		{
+		translate([-114.3,-114.3,0])
+		color("black") cylinder(h=4.8, d=57.25, $fs=.01);
+		translate([-114.3,-114.3,0])
+		color("black") cylinder(h=44, d=7.93, $fs=.01);
+			{
+
+			}
+		}
+		
+		union()
+		{
+			{
+			}
+		}
+	}
+}
+
+
+
+spindle2supply();
+
+
+
 
 module spindletakeup() //UMatic spindle for the takeup side
 {
 	difference()
 	{
 		union()
-		color("black")
 		{
-			translate([114.3,114.3,0])
-			cylinder(r=outerRadius, h=outerHeight, $fs=.01);
-			translate([114.3,114.3,0])
-			cylinder(d=innerDiam, h=innerHeight, $fs=.01);
-			translate([123.3,114,0])
-			cylinder(h=innerHeight+prongHeight, r=prongRadius);
-			translate([110.3,122,0])
-			cylinder(h=innerHeight+prongHeight, r=prongRadius);
-			translate([109.3,106,0])
-			cylinder(h=innerHeight+prongHeight, r=prongRadius);
+		translate([114.3,114.3,0])
+		color("black") cylinder(h=4.8, d=57.25, $fs=.01);
+		translate([114.3,114.3,0])
+		color("black") cylinder(h=44, d=7.93, $fs=.01);
+		translate([114.3,114.3,44])
+		color("black") sphere(d=7.93, $fs=.01);
+		translate([114.3,114.3,-9])
+		color("black") cylinder(h=9, d=19.31, $fs=.01);
+		translate([114.3,114.3,0])
+		color("black") rotate([0,0,120]) cube([1.4,10.73,21], center=true);
+		translate([114.3,114.3,0])
+		color("black") rotate([0,0,240]) cube([1.4,10.73,21], center=true);
+		translate([114.3,114.3,0])
+		color("black") rotate([0,0,360]) cube([1.4,10.73,21], center=true);
+		translate([114.3,114.3,-19.31])
+		color("silver") cylinder(h=10, d=15.91, $fs=.01);
 			{
 
 			}
@@ -159,10 +206,16 @@ module spindletakeup() //UMatic spindle for the takeup side
 		union()
 		color("black")
 		{
-			translate([114.3,114.3,0])
-			cylinder(r=shaftRadius, h=innerHeight*2+1, center=true);
-			translate([0,0,10/2]) spur(3, 8, 10);
-			if (centerShape==1) solid(10, 8);	
+		translate([113.3,118.2,0])
+		cube([1.4,7,10.8]);
+		translate([114.3,118.2,0])
+		cube([1.4,7,10.8]);
+		translate([118.2,113.3,0])
+		rotate([0,0,240]) cube([5,7,10.8]);
+		translate([111.45,111.45,0]) 
+		rotate([0,0,120]) cube([5,7,10.8]);
+		translate([114.3,114.3,-20])
+		cylinder(h=50, d=4, $fs=.01);
 			{
 			}
 		}
@@ -172,6 +225,33 @@ module spindletakeup() //UMatic spindle for the takeup side
 
 
 spindletakeup();
+
+module spindle2takeup() //UMatic spindle for the takeup side
+{
+	difference()
+	{
+		union()
+		{
+		translate([114.3,114.3,0])
+		color("black") cylinder(h=4.8, d=57.25, $fs=.01);
+		translate([114.3,114.3,0])
+		color("black") cylinder(h=44, d=7.93, $fs=.01);
+			{
+
+			}
+		}
+		
+		union()
+		{
+			{
+			}
+		}
+	}
+}
+
+
+
+spindle2takeup();
 
 module guiderollers() //guide rollers 
 {
@@ -402,9 +482,9 @@ module spindlemotors()
 		union() 
 		{
 			color("gold")
-			translate([114.3,114.3,-30])
+			translate([114.3,114.3,-42])
 			cylinder(h=45.38, d=40.68, center = true, $fs=.01); //supply motor spindle cutout
-             	translate([-114.3,-114.3,-30])
+             	translate([-114.3,-114.3,-42])
 			cylinder(h=45.38, d=40.68, center = true, $fs=.01); //takeup motor supply cutout
 		}
 		union() 
@@ -612,9 +692,9 @@ module servos()
 		union() 
 		color("black")
 		{
-			translate([114.3,79,-25])
+			translate([114.3,79,-42])
 			cube([40,19.5,36.5], center = true, $fs=.01); 
-                 translate([-114.3,-79,-25])
+                 translate([-114.3,-79,-42])
 			cube([40,19.5,36.5], center = true, $fs=.01); 
 		}
 		union() 
