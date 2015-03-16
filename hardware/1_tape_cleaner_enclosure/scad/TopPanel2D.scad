@@ -22,25 +22,25 @@ module top()
 		{
 			color([.5,.5,.5,.6])
 			translate([114.3,114.3])
-			circle(h=5, d=58, center = true, $fs=.01); //supply motor spindle cutout
+			circle(h=5, d=61, center = true, $fs=.01); //supply motor spindle cutout
              	translate([-114.3,-114.3])
-			circle(h=5, d=58, center = true, $fs=.01); //takeup motor supply cutout
+			circle(h=5, d=61, center = true, $fs=.01); //takeup motor supply cutout
              	translate([-136,152.4]) 
-			circle(h=5, d=6.35, center = true, $fs=.01); //supply corner roller
+			circle(h=5, d=6.45, center = true, $fs=.01); //supply corner roller
              	translate([136,-152.4])
-			circle(h=5, d=6.35, center = true, $fs=.01); // takeup corner roller
+			circle(h=5, d=6.45, center = true, $fs=.01); // takeup corner roller
              	translate([-69, 77.7])  
-			rotate(135) square([6.35,20], center = true, $fs=.01); //cleaning path guide roller A
+			rotate(135) square([6.45,20], center = true, $fs=.01); //cleaning path guide roller A
              	translate([69,-77.7])
-			rotate(135) square([6.35,20], center = true, $fs=.01); //cleaning path guide roller B
+			rotate(135) square([6.45,20], center = true, $fs=.01); //cleaning path guide roller B
              	translate([-18.2, 26.9])
-			rotate(135) square([6.35,20], center = true, $fs=.01); //cleaning path guide roller C
+			rotate(135) square([6.45,20], center = true, $fs=.01); //cleaning path guide roller C
              	translate([18.2, -26.9]) 
-			rotate(135) square([6.35,20], center = true, $fs=.01); //cleaning path guide roller D
+			rotate(135) square([6.45,20], center = true, $fs=.01); //cleaning path guide roller D
              	translate([-7,92]) 
-			circle(h=5, d=6.35, center = true, $fs=.01); //cleaning path guide roller E
+			circle(h=5, d=6.45, center = true, $fs=.01); //cleaning path guide roller E
              	translate([7,-92])
-			circle(h=5, d=6.35, center = true, $fs=.01); //cleaning path guide roller F
+			circle(h=5, d=6.45, center = true, $fs=.01); //cleaning path guide roller F
              	translate([-30,65])  
 			circle(h=5, d=12.7, center = true, $fs=.01); //cleaning path guide roller G //supply-side supply pellon
              	translate([30,-65])
@@ -52,7 +52,7 @@ module top()
             	translate([-80.7, 152.4]) 
 			rotate(90) square(size=[50.8, 10.5], center = true, $fs=.01); //tension arm roller cutout
            		translate([-25.4, 152.4]) 
-			circle(h=5, d=6.35, center = true, $fs=.01); //supplyside initial roller
+			circle(h=5, d=6.45, center = true, $fs=.01); //supplyside initial roller
 	        	translate([-25.4,-25.4])
 			rotate(45) square(size=[40, 10.5], center = true, $fs=.01); //IR sensor takeup side
 	        	translate([25.4, 25.4])
