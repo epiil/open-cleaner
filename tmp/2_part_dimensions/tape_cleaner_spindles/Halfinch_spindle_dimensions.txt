@@ -1,9 +1,0 @@
-Quarter-inch / Half-inch spindle dimensions:
-
-bottom outside diameter: 57.64 mm /  2.269 inches
-
-interior diameter: 8.05mm / 0.316 inches
-
-height: 38.11 mm / 1.5 inches
-
- 
