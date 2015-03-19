@@ -6,7 +6,7 @@
 
 //OUTER DIMENSIONS in mm
 
-outerWidth=406.4;
+outerWidth=390.144;
 outerLength=406.4;
 
 module top()
