@@ -1,12 +1,12 @@
-#open-cleaner: an (in-progress) open-source tape cleaning solution for analog video / magnetic media
+###open-cleaner: an (in-progress) open-source tape cleaning solution for analog video / magnetic media
 
 ###Introduction
 
-This repo contains instructions for building, testing, and operating a device designed for cleaning open-reel magnetic video and audio tape. When used in conjunction with audiovisual reformatting, the device will assist in the mitigation of binder hydrolisis (aka "Sticky Shed Syndrome"). 
+This repo contains instructions for assembling, testing, and operating an open-reel magnetic video tape cleaner. When used in conjunction with other conservation treatments like incubation, tape cleaning assists in minimizing the effects of tape degradation, such as binder hydrolisis or "Sticky Shed Syndrome" during the playback/reformatting process.  
 
-The fundamental mechanics of the device consist of a dual-motor spindle drivetrain that moves tape through two Pellon cleaning stations by way of a supply and takeup reel, controlled by an Arduino Uno microcontroller and accompanying motor shield. Tape speed and tension are monitored by a series of IR sensors, photoresistors and potentiometers, which provide feedback to the Arduino and motor shield. Each Pellon cleaning station has an individual drivetrain that advances cleaning fabric. 
+The fundamental mechanics of the tape cleaner consist of a dual-motor spindle drivetrain that moves the tape through two Pellon cleaning stations by way of a supply and takeup reel, controlled by an Arduino Uno microcontroller and integrated motor shield. The tape's speed and tension are monitored by a series of IR sensors, photoresistors and potentiometers that provide feedback to the microcontroller boards and motors. Each Pellon cleaning uses individual drivetrains that incrementally advance fabric past several contact points. 
 
-While the primary motor spindles of the tape cleaner may be used for 1/2" and 1/4" open-reel video and audio tape, additional spindles may be used for the cassette-less cleaning of 3/4" U-Matic and VHS formats.
+While the primary motor spindles of the tape cleaner may be used for open-reel 1/2" video and 1/4" audio tape, additional spindles may be employed for cassette-less cleaning of 3/4" U-Matic and VHS tape. 
 
 
 ###Repository Contents:
@@ -15,7 +15,7 @@ While the primary motor spindles of the tape cleaner may be used for 1/2" and 1/
 
 - /software - contains .ino Arduino "sketches" and associated libraries (http://www.arduino.cc/)
 
-- /schematics - contains electronic schematics. All circuit schematics are done with Fritzing (http://fritzing.org/home/)
+- /schematics - contains electronic schematics done with Fritzing (http://fritzing.org/home/)
 
 - /partslist - contains inventory and pricelist of associated parts
 
