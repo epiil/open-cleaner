@@ -11,13 +11,13 @@ While the primary motor spindles of the tape cleaner may be used for open-reel 1
 
 ###Repository Contents:
 
-- /hardware - contains .scad, .dxf and .stl files for enclosure and spindle fabrication. All 2D/3D modeling is done with OpenSCAD (http://www.openscad.org/). 
+- /hardware - contains .scad, .dxf and .stl files for enclosure and spindle fabrication. All 2D/3D modeling is done with OpenSCAD (http://www.openscad.org/). Note that .stl 3D files are viewable on Github. 
 
-- /software - contains .ino Arduino "sketches" and associated libraries (http://www.arduino.cc/)
+- /software - contains .ino Arduino "sketches" and associated libraries (http://www.arduino.cc/).
 
-- /schematics - contains electronic schematics done with Fritzing (http://fritzing.org/home/)
+- /schematics - contains .fzz and .png electronic schematics done with Fritzing (http://fritzing.org/home/).
 
-- /partslist - contains inventory and pricelist of associated parts
+- /partslist - contains inventory and pricelist of associated parts. 
 
 
 ##License
