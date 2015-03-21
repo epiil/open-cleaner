@@ -38,12 +38,16 @@ module spindle()
 		{
 			cylinder(r=outerRadius, h=outerHeight, $fs=.01);
 			cylinder(d=innerDiam, h=innerHeight, $fs=.01);
-			translate([9,0,0])
-			cylinder(h=innerHeight+prongHeight, r=prongRadius);
-			translate([-4,8,0])
-			cylinder(h=innerHeight+prongHeight, r=prongRadius);
-			translate([-5,-8,0])
-			cylinder(h=innerHeight+prongHeight, r=prongRadius);
+			//color("red") cylinder(d=18, h=innerHeight+prongHeight);
+		    	//color("red") rotate([0,0,120]) cube([1.6,20,50], center=true);
+			//color("red") rotate([0,0,240]) cube([1.6,20,50], center=true);
+			//color("red") rotate([0,0,360]) cube([1.6,20,50], center=true);
+			translate([8,-4.5,0])
+			cylinder(h=innerHeight+prongHeight, r=prongRadius, $fs=.01);
+			translate([0,9,0])
+			cylinder(h=innerHeight+prongHeight, r=prongRadius, $fs=.01);
+			translate([-8,-4.5,0])
+			cylinder(h=innerHeight+prongHeight, r=prongRadius, $fs=.01);
 			{
 
 			}
