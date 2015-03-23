@@ -6,16 +6,22 @@
 - Chassis: Extruded Aluminum (6063 T6)
 - Top/Bottom/Endplates: Aluminum (5052 H32)
 
-###Main circuit boards / microcontrollers
+###Main boards 
 
 - (1) Arduino Uno Rev3 Microcontroller board
 - (1) Arduino Motor Shield Rev3 (http://arduino.cc/en/Main/ArduinoMotorShieldR3)
-- (2) Sparkfun Photo Interrupter Breakout Board - GP1A57HRJ00F
 
 ###Motors
 
 - (2) Seiko Continuous Sweep Hi-Torque Quartz Clock Motors
 - (2) Brushed DC Motors 
+
+###IRs/Photointerrupters
+
+- (2) Sparkfun Photo Interrupter Breakout Board - GP1A57HRJ00F
+- (2) Sharp GP2Y0A21YK0F IR Range Sensors
+- (2) SIRC-01 Sharp GP2 IR Sensor Cables
+- (2) Photo Interrupters - GP1A57HRJ00F
 
 ###Cleaning fabric
 
@@ -27,14 +33,11 @@
 - (2) NPN Bipolar Transistors (PN2222) 
 - (2) 1N4001 Diodes
 - (2) 330 Ohm resistors
-- (2) Photo Interrupters - GP1A57HRJ00F
 - (1) DPDT switch
 - (1) SPDT switch
 - (2) LM317TG voltage regulators
 - (2) Heatsinks TO-220
 - (2) 0.1uF capacitors
-- (2) Sharp GP2Y0A21YK0F IR Range Sensors
-- (2) SIRC-01 Sharp GP2 IR Sensor Cables
 
 ###Misc.
 
