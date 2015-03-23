@@ -1,4 +1,4 @@
-##Parts List (Updated 3/18/2015)
+##Parts List (Updated 3/23/2015)
 
 ###Enclosure
 
@@ -23,9 +23,13 @@
 - (2) SIRC-01 Sharp GP2 IR Sensor Cables
 - (2) Photo Interrupters - GP1A57HRJ00F
 
-###Cleaning fabric
+###Pellon cleaning system
 
 - (2) Amber Professional Pellon Non-Woven Rolls
+- (6) 1/4"-20 x2" stainless phillips machine screws
+- (2) 1/2" O.D. .257" I.D. 1" length nylon bushings
+- (6) 3/8" x 1/2" x 1-1/2" metal bushings
+
 
 ###Circuit components
 
