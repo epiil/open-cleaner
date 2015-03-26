@@ -8,9 +8,9 @@
 // Use the softwareserial library to create a new "soft" serial port
 // for the display. This prevents display corruption when uploading code.
 #include <SoftwareSerial.h>
-
+      
 // Attach the serial display's RX line to digital pin 2
-SoftwareSerial mySerial(3,2); // pin 2 = TX, pin 3 = RX (unused)
+SoftwareSerial mySerial(1,2); // pin 2 = TX, pin 3 = RX (unused)
 
 void setup()
 {
