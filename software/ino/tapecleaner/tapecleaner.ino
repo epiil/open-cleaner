@@ -18,11 +18,21 @@ void loop()
   photoVal = analogRead(ruptPin); // read the value from photointerrupter
   Serial.println(photoVal); // print the sensor value to the serial monitor
   delay(50);
-  if (photoVal > 0)
+  if (photoVal > 10)
+{
+  digitalWrite(13, LOW); //Stops Channel A
+  digitalWrite(8, HIGH);   //Engages the Brake for Channel A
+  digitalWrite(12, LOW); //Establishes forward direction of Channel B
+  digitalWrite(9, HIGH);   //Disengages the Brake for Channel B
+}
+  else
 {
   digitalWrite(13, HIGH); //Establishes forward direction of Channel A
   digitalWrite(8, LOW);   //Disengages the Brake for Channel A
-  analogWrite(11, 80);   //Spins the motor on Channel A at full speed
+  analogWrite(3, 80);   //Spins the motor on Channel A at full speed
+  digitalWrite(12, HIGH); //Establishes backward direction of Channel B
+  digitalWrite(9, LOW);   //Disengage the Brake for Channel B
+  analogWrite(11, 200);   //Spins the motor on Channel B at half speed
+}
 }
 
-}
