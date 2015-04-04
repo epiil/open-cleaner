@@ -1,4 +1,9 @@
 ###History
+
+2015-04-04
+
++ Moved schematics from Fritzing to Eagle
+
 2015-03-10
 
 + Finalized enclosure cutouts - .dxf, .stl, etc.
