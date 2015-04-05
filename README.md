@@ -15,7 +15,7 @@ While the primary motor spindles of the tape cleaner may be used for open-reel 1
 
 - /software - contains .ino Arduino "sketches" and associated libraries (http://www.arduino.cc/).
 
-- /schematics - contains .sch and .brd electronic schematics done in Eagle (http://www.cadsoftusa.com/).
+- /schematics - contains .sch schematic files done in Eagle (http://www.cadsoftusa.com/).
 
 - /partslist - contains inventory and pricelist of associated parts. 
 

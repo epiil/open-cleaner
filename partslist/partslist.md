@@ -31,7 +31,7 @@
 - (6) 3/8" x 1/2" x 1-1/2" metal bushings
 
 
-###Circuit components
+###Circuit components  (To be determined)
 
 - (2) TIP120 Power Darlington Transistors
 - (2) NPN Bipolar Transistors (PN2222) 
@@ -43,7 +43,7 @@
 - (2) Heatsinks TO-220
 - (2) 0.1uF capacitors
 
-###Misc.
+###Misc. (To be determined)
 
 - (1) IEC 320 C14 Male Plug 3 Pins PCB Panel Power Inlet Socket Connector
 
