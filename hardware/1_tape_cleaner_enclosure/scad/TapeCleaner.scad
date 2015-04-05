@@ -435,10 +435,10 @@ module irsensors()
 		union() 
 		color("black")
 		{
-	        	translate([-25.4,-25.4,0])
-			rotate(315) cube(size=[40, 10.5, 30], center = true, $fs=.01); //IR sensor takeup side
-	        	translate([25.4, 25.4,0])
-			rotate(315) cube(size=[40, 10.5, 30], center = true, $fs=.01); //IR sensor supply side
+	        	translate([-40.4,-13.4,0])
+			rotate(315) cube(size=[40, 10.5, 15], $fs=.01); //IR sensor takeup side
+	        	translate([13.4, 40.4,0])
+			rotate(315) cube(size=[40, 10.5, 15], $fs=.01); //IR sensor supply side
 	        	translate([-127, 127,0])
 			rotate(45) cube(size=[20, 5.1, 30], center = true, $fs=.01); //photoop sensor takeup side
 	        	translate([127, -127,0])
@@ -462,9 +462,13 @@ module bottom()
 	difference() 
 	{
 		union() 
+		color("grey")
 		{
-			color("grey")
 			translate([0,0,-88.138]) cube(size=[outerWidth, outerLength, outerHeight], center = true, $fs=.01);
+			translate([90,65,-88.138]) cube(size=[5, 75, 65], $fs=.01);
+			translate([-90,-140,-88.138]) cube(size=[5, 75, 65], $fs=.01);
+			translate([60,-125,-88.138]) cube(size=[5, 35, 65], $fs=.01);
+			translate([-30, 90,-88.138]) cube(size=[5, 35, 65], $fs=.01);
 		}
 		union() 
 		{
@@ -482,10 +486,10 @@ module spindlemotors()
 		union() 
 		{
 			color("gold")
-			translate([114.3,114.3,-42])
-			cylinder(h=45.38, d=40.68, center = true, $fs=.01); //supply motor spindle cutout
-             	translate([-114.3,-114.3,-42])
-			cylinder(h=45.38, d=40.68, center = true, $fs=.01); //takeup motor supply cutout
+			translate([114.3,114.3,-89])
+			cylinder(h=70, d=40.68, $fs=.01); //supply motor spindle cutout
+             	translate([-114.3,-114.3,-89])
+			cylinder(h=70, d=40.68, $fs=.01); //takeup motor supply cutout
 		}
 		union() 
 		{
@@ -503,14 +507,10 @@ module pellonmotors()
 		union() 
 		{
 			color("gold")
-			translate([-30,65,-30])
-			cylinder(h=45.38, d=25, center = true, $fs=.01); 
-               	translate([30,-65,-30])
-			cylinder(h=45.38, d=25, center = true, $fs=.01); 
-			translate([-50.8,108,-30])
-			cylinder(h=45.38, d=25, center = true, $fs=.01); 
-                 translate([50.8,-108,-30])
-			cylinder(h=45.38, d=25, center = true, $fs=.01); 
+			translate([-50.8,108,-89])
+			cylinder(h=85, d=25, $fs=.01); 
+                 translate([50.8,-108,-89])
+			cylinder(h=85, d=25, $fs=.01); 
 		}
 		union() 
 		{
@@ -645,8 +645,8 @@ module arduino() //Arduino and motor shield
 		union()
 
 		{
-			translate([110, -30, -78]) rotate(180) Arduino(1, 0, 0);
-			color("tan") translate([110, -30, -60]) rotate(180) Arduino(1, 1, 1);
+			translate([40, 110, -78]) rotate(180) Arduino(1, 0, 0);
+			color("tan") translate([40, 110, -60]) rotate(180) Arduino(1, 1, 1);
 			{
 
 			}
@@ -692,10 +692,10 @@ module servos()
 		union() 
 		color("black")
 		{
-			translate([114.3,79,-42])
-			cube([40,19.5,36.5], center = true, $fs=.01); 
-                 translate([-114.3,-79,-42])
-			cube([40,19.5,36.5], center = true, $fs=.01); 
+			translate([114.3,75,-89])
+			cube([40,19.5,70], $fs=.01); 
+                 translate([-130,-93,-89])
+			cube([40,19.5,70], $fs=.01); 
 		}
 		union() 
 		{
@@ -713,8 +713,8 @@ module tensionarm()
 		union() 
 		color("silver")
 		{
-            	translate([-83.3, 152.4,-25]) 
-		 	rotate(90) cube(size=[60, 20, 36.5], center = true, $fs=.01);
+            	translate([-75, 120,-89]) 
+		 	rotate(90) cube(size=[60, 20, 85], $fs=.01);
 		}
 		union() 
 		{
