@@ -13,7 +13,7 @@
  * PhotoInterrupter Definitions
  ******************************************************************************/
 
-int supplyIntPin = 2; // select analog 2 input pin for supply-side photointerrupter
+int supplyIntPin = 3; // select analog 3 input pin for supply-side photointerrupter
 int supplyIntVal; // variable to store the value coming from supply-side photointerrupter
 //int takeupIntPin = 4; // select analog 4 input pin for take-up side photointerrupter
 //int takeupIntVal; // variable to store the value coming from take-up side photointerrupter
