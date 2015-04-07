@@ -23,7 +23,9 @@ int supplyIntVal; // variable to store the value coming from supply-side photoin
  ******************************************************************************/
 
 //#define supplyirSensorPin 5       // supply-side IR sensor on this pin
-//#define takeupirSensorPin 6       // take-up IR sensor on this pin
+const int ledPin = 10;
+const int takeupirSensorPin = 2; // take-up IR sensor on this pin
+const long referenceMv = 5000;
 //int irRead(int readPin, int triggerPin); //function prototype
 
 /******************************************************************************
@@ -68,6 +70,7 @@ void setup()
   clearLCD();
   lcdPosition(0,0);
   LCD.print("   OPENCLEANER");
+  pinMode(ledPin, OUTPUT);
   
 /******************************************************************************
  * DC Motor Definitions
@@ -84,6 +87,19 @@ void loop()
   supplyIntVal = analogRead(supplyIntPin); // read the value from photointerrupter
   Serial.println(supplyIntVal); // print the sensor value to the serial monitor
   delay(50);
+  int val = analogRead(takeupirSensorPin);
+  int mV = (val * referenceMv) / 1023;
+  
+  Serial.print(mV);
+  Serial.print(",");
+  int cm = getDistance(mV);
+  Serial.println(cm);
+  
+  digitalWrite(ledPin, HIGH);
+  delay(cm * 10 );
+  digitalWrite(ledPin, LOW);
+  
+  delay(100);
   if (supplyIntVal > 10)
 {
 	
@@ -102,4 +118,20 @@ void loop()
   analogWrite(11, 200);   //Spins the motor on Channel B (take-up side motor) at half speed
 }
 }
- 
+ const int TABLE_ENTRIES = 12;
+const int firstElement = 250;
+const int INTERVAL = 250;
+static int distance[TABLE_ENTRIES] = {150,140,130,100,60,50,40,35,30,25,20,15};
+
+int getDistance(int mV)
+
+{
+  if( mV > INTERVAL * TABLE_ENTRIES-1 )
+    return distance[TABLE_ENTRIES-1];
+  else
+  {
+    int index = mV / INTERVAL;
+    float frac = (mV % 250) / (float)INTERVAL;
+    return distance[index] - ((distance[index] - distance[index+1]) * frac);
+  }
+}
