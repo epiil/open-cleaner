@@ -1,4 +1,4 @@
-##open-cleaner: an open-source tape cleaning solution for magnetic media
+#open-cleaner: an open-source tape cleaning solution for magnetic media
 
 ![alt tag](https://github.com/epiil/open-cleaner/blob/master/photos/opencleaner_OpenSCAD_front.png)
 
