@@ -2,15 +2,25 @@
 
 ##Summary
 
-Opencleaner consists of a dual-motor spindle drivetrain that moves videotape through two Pellon cleaning stations by way of a supply and takeup reel, controlled by an Arduino Uno microcontroller and integrated motor shield. The tape's speed and tension are monitored by an array of IR sensors, photointerrupters and potentiometers that provide feedback to the microcontroller for motor speed control. Each Pellon cleaning station consists of individual drivetrains that incrementally advance fabric past several contact points of the tape path. 
+Opencleaner consists of a dual-motor spindle drivetrain that moves videotape through two Pellon cleaning stations by way of a supply and takeup reel, controlled by an Arduino Uno microcontroller and integrated motor shield. The tape's speed and tension are monitored by an array of IR sensors, photointerrupters and potentiometers that provide feedback to the microcontroller for motor speed control. Each Pellon cleaning station consists of individual drivetrains that incrementally advance fabric past several contact points adjacent to the tape path. 
 
 ##Layout
 
 ![OpenSCAD](https://github.com/epiil/open-cleaner/blob/master/photos/opencleaner_OpenSCAD_front.png)
 
+Basic view 
+
 ![OpenSCAD2](https://github.com/epiil/open-cleaner/blob/master/photos/tapecleanerlayout.png)
 
+Tow view
+
 ![OpenSCAD3](https://github.com/epiil/open-cleaner/blob/master/photos/TapeEnclosureLayout.png)
+
+Front view 
+
+##Spindles
+
+The cleaner consists of supply and takeup spindles designed to accomodate 1/2" and 1/4" open reel video and audio tape. 
 
 ##IR tape sensors
 
