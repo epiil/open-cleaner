@@ -8,6 +8,10 @@ Opencleaner consists of a dual-motor spindle drivetrain that moves videotape thr
 
 ![OpenSCAD](https://github.com/epiil/open-cleaner/blob/master/photos/opencleaner_OpenSCAD_front.png)
 
+![OpenSCAD2](https://github.com/epiil/open-cleaner/blob/master/photos/tapecleanerlayout.png)
+
+![OpenSCAD3](https://github.com/epiil/open-cleaner/blob/master/photos/TapeEnclosureLayout.png)
+
 ##IR tape sensors
 
 ![IRsensor](https://github.com/epiil/open-cleaner/blob/master/photos/opencleaner_IR_sensors.jpg)
