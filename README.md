@@ -1,5 +1,7 @@
 #open-cleaner: an (in-progress) open-source tape cleaning solution for analog video / magnetic media
 
+![alt tag](https://github.com/epiil/open-cleaner/blob/master/photos/opencleaner_OpenSCAD_front.png)
+
 ##Introduction
 
 This repo contains instructions for assembling, testing, and operating an open-reel magnetic video tape cleaner. When used in conjunction with other conservation treatments like incubation (baking), tape cleaning assists in minimizing the effects of tape degradation, such as binder hydrolysis or "sticky shed syndrome" during the playback/reformatting process.  
