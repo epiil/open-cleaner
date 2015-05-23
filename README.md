@@ -1,4 +1,4 @@
-#open-cleaner: an (in-progress) open-source tape cleaning solution for analog video / magnetic media
+##open-cleaner: an open-source tape cleaning solution for magnetic media
 
 ![alt tag](https://github.com/epiil/open-cleaner/blob/master/photos/opencleaner_OpenSCAD_front.png)
 
@@ -22,6 +22,8 @@ While the primary motor spindles of the tape cleaner may be used for open-reel 1
 - /schematics - contains .sch schematic files done in Eagle (http://www.cadsoftusa.com/).
 
 - /partslist - contains inventory and pricelist of associated parts. 
+
+- /photos - in-progress photos
 
 
 ##License
