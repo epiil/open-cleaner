@@ -23,6 +23,10 @@
 - (2) SIRC-01 Sharp GP2 IR Sensor Cables
 - (2) Photo Interrupters - GP1A57HRJ00F
 
+###Interface
+
+- (1) Sparkfun Serial Enables LCD Kit 
+
 ###Pellon cleaning system
 
 - (2) Amber Professional Pellon Non-Woven Rolls
@@ -69,6 +73,7 @@
 - $   .50 (2) 0.1uF capacitors
 - $ 19.90 (2) Sharp GP2Y0A21YK0F IR Range Sensors
 - $  3.90 (2) SIRC-01 Sharp GP2 IR Sensor Cables
+- $ 24.95 (1) Sparkfun Serial Enables LCD Kit 
 - $142.95 (1) 350DT 16"W x 16"D aluminum desktop enclosure, natural finish
 
-- $351.42 Total
+- $376.37 Total

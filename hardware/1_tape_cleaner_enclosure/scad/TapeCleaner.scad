@@ -725,6 +725,45 @@ module tensionarm()
 
 tensionarm();
 
+module pellonmotorswitch1()
+{
+	difference() 
+	{
+		union() 
+		color("blue")
+		{
+			translate([-110, 202,-52])
+			cylinder(h=15, d=20);
+		}
+		union() 
+		{
+
+		}
+	}
+}
+
+pellonmotorswitch1();
+
+module pellonmotorswitch2()
+{
+	difference() 
+	{
+		union() 
+		color("blue")
+		{
+			translate([-140, 202,-52])
+			cylinder(h=15, d=20);
+		}
+		union() 
+		{
+
+		}
+	}
+}
+
+pellonmotorswitch2();
+
+
 //module tapepathreference()
 //{
 //	difference() 
