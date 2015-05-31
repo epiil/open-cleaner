@@ -22,10 +22,15 @@
 - (2) Sharp GP2Y0A21YK0F IR Range Sensors
 - (2) SIRC-01 Sharp GP2 IR Sensor Cables
 - (2) Photo Interrupters - GP1A57HRJ00F
+- (4) M3-0.5 x 16mm Metric Socket Cap Screws
+- (4) M3-0.5 X 16mm Steel Hex Nuts
+- (2) IR distance sensor mounts (For 3D printing: https://github.com/epiil/open-cleaner/blob/master/hardware/3_ir_distance_sensor_holder/stl/ir_distance_sensor_holder.stl)
 
 ###Interface
 
 - (1) Sparkfun Serial Enables LCD Kit 
+- (4) M3-0.5 x 16mm Metric Socket Cap Screws
+- (4) M3-0.5 X 16mm Steel Hex Nuts
 
 ###Pellon cleaning system
 
