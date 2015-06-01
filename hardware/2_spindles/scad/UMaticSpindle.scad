@@ -4,6 +4,7 @@
 //https://github.com/epiil/tape-cleaner
 //v20150208
 
+$fn=100;
 
 //SPINDLE "OUTER" PARAMETERS
 outerRadius=60; //outer "seat" radius
