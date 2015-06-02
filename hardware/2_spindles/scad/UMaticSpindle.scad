@@ -17,7 +17,7 @@ innerRadius=13.5; //inner spindle radius
 innerDiam=29.62; //inner spindle diameter
 innerHeight=20; //inner spindle height
 shaftDiam=8; //inner shaft diameter
-shaftRadius=4; //inner shaft radius
+shaftRadius=4.1; //inner shaft radius
 
 //TEETH PARAMETERS
 
