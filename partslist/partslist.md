@@ -29,8 +29,9 @@
 ###Interface
 
 - (1) Sparkfun Serial Enables LCD Kit 
-- (4) M3-0.5 x 16mm Metric Socket Cap Screws
-- (4) M3-0.5 X 16mm Steel Hex Nuts
+- (4) M2-0.4 x 20mm Metric Socket Cap Screws
+- (4) M2-0.4 Steel Hex Nuts
+- (8) M2-0.4 Flat Washers
 
 ###Pellon cleaning system
 
