@@ -9,26 +9,34 @@
 ###Main boards 
 
 - (1) Arduino Uno Rev3 Microcontroller board
-- (1) Arduino Motor Shield Rev3 (http://arduino.cc/en/Main/ArduinoMotorShieldR3)
+- (1) Adafruit Motor/Stepper/Servo Shield for Arduino v2 Kit (v2.3)
 
-###Motors
+###Spindle Motors
 
-- (2) Seiko Continuous Sweep Hi-Torque Quartz Clock Motors
-- (2) Brushed DC Motors 
+- (2) Spec TBD
+
+###Pellon Motors
+
+- (2) Spec TBD
 
 ###IR distance sensors/Photointerrupters
 
-- (2) Sparkfun Photo Interrupter Breakout Board - GP1A57HRJ00F
 - (2) Sharp GP2Y0A21YK0F IR Range Sensors
 - (2) SIRC-01 Sharp GP2 IR Sensor Cables
-- (2) Photo Interrupters - GP1A57HRJ00F
 - (4) M3-0.5 x 16mm Metric Socket Cap Screws
 - (4) M3-0.5 X 16mm Steel Hex Nuts
 - (2) IR distance sensor mounts (For 3D printing: https://github.com/epiil/open-cleaner/blob/master/hardware/3_ir_distance_sensor_holder/stl/ir_distance_sensor_holder.stl)
 
-###LCD Interface
+####Photointerrupter Option 1:
+- (2) OPTEK SENS OPTO SLOT 9.53MM TRANS C-MT Photointerrupters
 
-- (1) Sparkfun Serial Enables LCD Kit 
+####Photointerrupter Option 2:
+- (2) Photo Interrupters - GP1A57HRJ00F
+- (2) Sparkfun Photo Interrupter Breakout Board - GP1A57HRJ00F
+
+###LCD Interface and Keypad
+
+- (1) Adafruit Blue&White 16x2 LCD+Keypad Kit 
 - (4) M2-0.4 x 20mm Metric Socket Cap Screws
 - (4) M2-0.4 Steel Hex Nuts
 - (8) M2-0.4 Flat Washers
