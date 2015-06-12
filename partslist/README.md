@@ -19,6 +19,10 @@
 
 - (2) Spec TBD
 
+###Switching Power Supply (12VDC)
+
+- (1) Spec TBD
+
 ###IR distance sensors/Photointerrupters
 
 - (2) Sharp GP2Y0A21YK0F IR Range Sensors
