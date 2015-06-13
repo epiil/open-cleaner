@@ -1,4 +1,4 @@
-##Parts List (Updated 3/23/2015)
+##Parts List (Updated 6/13/2015)
 
 ###Enclosure
 
@@ -8,7 +8,7 @@
 
 ###Main boards 
 
-- (1) Arduino Uno Rev3 Microcontroller board
+- (1) Arduino Uno Rev3 Microcontroller board OR (1) Arduino Mega 2560 Microcontroller Board
 - (1) Adafruit Motor/Stepper/Servo Shield for Arduino v2 Kit (v2.3)
 
 ###Spindle Motors
@@ -17,13 +17,17 @@
 
 ###Pellon Motors
 
-- (2) Spec TBD
+- (2) DC 6V 30RPM Micro Speed Reduction Gear Motor with Metal Gearbox Wheel 3mm Shaft
 
 ###Switching Power Supply (12VDC)
 
 - (1) Spec TBD
 
-###IR distance sensors/Photointerrupters
+###Precision Guide Rollers
+
+- (4) Spec TBD
+
+###IR distance sensors
 
 - (2) Sharp GP2Y0A21YK0F IR Range Sensors
 - (2) SIRC-01 Sharp GP2 IR Sensor Cables
@@ -31,12 +35,18 @@
 - (4) M3-0.5 X 16mm Steel Hex Nuts
 - (2) IR distance sensor mounts (For 3D printing: https://github.com/epiil/open-cleaner/blob/master/hardware/3_ir_distance_sensor_holder/stl/ir_distance_sensor_holder.stl)
 
-####Photointerrupter Option 1:
+###Photo interrupters (Option 1):
+
 - (2) OPTEK SENS OPTO SLOT 9.53MM TRANS C-MT Photointerrupters
 
-####Photointerrupter Option 2:
+###Photo interrupters (Option 2):
+
 - (2) Photo Interrupters - GP1A57HRJ00F
 - (2) Sparkfun Photo Interrupter Breakout Board - GP1A57HRJ00F
+
+###Tension Arm
+
+- (1) Bourns Inc. 3046L-3-502 Linear Position Potentiometer
 
 ###LCD Interface and Keypad
 
@@ -51,4 +61,12 @@
 - (6) 1/4"-20 x2" stainless phillips machine screws
 - (2) 1/2" O.D. .257" I.D. 1" length nylon bushings
 - (6) 3/8" x 1/2" x 1-1/2" metal bushings
+
+###Miscellaneous Wires/Connectors
+
+- (2) TE Connectivity AMP Connectors 282834-3 Terminal Blocks
+- (1) SODIAL IEC 320 C14 Male Plug 3 Pins PCB Panel Power Inlet Socket Connector 
+
+
+
 
