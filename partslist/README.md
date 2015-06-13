@@ -6,7 +6,7 @@
 - Chassis: Extruded Aluminum (6063 T6)
 - Top/Bottom/Endplates: Aluminum (5052 H32)
 
-###Main boards 
+###Main Microcontroller Boards / Shields
 
 - (1) Arduino Uno Rev3 Microcontroller board OR (1) Arduino Mega 2560 Microcontroller Board
 - (1) Adafruit Motor/Stepper/Servo Shield for Arduino v2 Kit (v2.3)
@@ -27,7 +27,7 @@
 
 - (4) Spec TBD
 
-###IR distance sensors
+###IR Distance Sensors
 
 - (2) Sharp GP2Y0A21YK0F IR Range Sensors
 - (2) SIRC-01 Sharp GP2 IR Sensor Cables
@@ -35,11 +35,11 @@
 - (4) M3-0.5 X 16mm Steel Hex Nuts
 - (2) IR distance sensor mounts (For 3D printing: https://github.com/epiil/open-cleaner/blob/master/hardware/3_ir_distance_sensor_holder/stl/ir_distance_sensor_holder.stl)
 
-###Photo interrupters (Option 1):
+###Photo Interrupter Sensors (Option 1):
 
 - (2) OPTEK SENS OPTO SLOT 9.53MM TRANS C-MT Photointerrupters
 
-###Photo interrupters (Option 2):
+###Photo Interrupter Sensors (Option 2):
 
 - (2) Photo Interrupters - GP1A57HRJ00F
 - (2) Sparkfun Photo Interrupter Breakout Board - GP1A57HRJ00F
@@ -55,7 +55,7 @@
 - (4) M2-0.4 Steel Hex Nuts
 - (8) M2-0.4 Flat Washers
 
-###Pellon cleaning system
+###Pellon Cleaning System
 
 - (2) Amber Professional Pellon Non-Woven Rolls
 - (6) 1/4"-20 x2" stainless phillips machine screws
