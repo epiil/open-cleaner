@@ -67,6 +67,9 @@
 - (2) TE Connectivity AMP Connectors 282834-3 Terminal Blocks
 - (1) SODIAL IEC 320 C14 Male Plug 3 Pins PCB Panel Power Inlet Socket Connector 
 - (1) SPST On/Off Rocker Switch
+- (1) Switchcraft EHUSBBABX USB-B to USB-A Panel Mount Feed Through USB Barrel Connector
+- (1) USB cable, 1.5 feet
+- (1) USB cable, 3 feet
 
 
 
