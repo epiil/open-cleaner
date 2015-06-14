@@ -1,0 +1,31 @@
+Quantity,Item,Vendor,Price Per Item,Line Total,Item link
+1,"350DT 16""W x 16""D aluminum desktop enclosure, natural finish; Extruded Aluminum (6063 T6); - Top/Bottom/Endplates: Aluminum (5052 H32)",EnclosuresAndCases.com,$202.95,$202.95,N/A
+1,Arduino Uno Rev3 Microcontroller board OR (1) Arduino Mega 2560 Microcontroller Board,Adafruit.com,$45.95,$45.95,
+1,Adafruit Motor/Stepper/Servo Shield for Arduino v2 Kit (v2.3),Adafruit.com,$19.95,$19.95,
+2,DC 6V 30RPM Micro Speed Reduction Gear Motor with Metal Gearbox Wheel 3mm Shaft,Newegg.com,$7.34,$14.68,http://www.newegg.com/Product/Product.aspx?Item=9SIA76H2TP7945
+2,Sharp GP2Y0A21YK0F IR Range Sensors,Digikey.com,$7.50,$15.00,http://www.digikey.com/product-detail/en/GP2Y0A41SK0F/425-2819-ND/3884447
+2,SIRC-01 Sharp GP2 IR Sensor Cables,Digikey.com,$2.00,$4.00,
+4,M3-0.5 x 16mm Metric Socket Cap Screws,HomeDepot.com,$1.00,$4.00,
+4,M3-0.5 X 16mm Steel Hex Nuts,HomeDepot.com,$1.00,$4.00,
+2,IR distance sensor mounts (For 3D printing: https://github.com/epiil/open-cleaner/blob/master/hardware/3_ir_distance_sensor_holder/stl/ir_distance_sensor_holder.stl),N/A,$5.00,$10.00,N/A
+2,OPTEK SENS OPTO SLOT 9.53MM TRANS C-MT Photointerrupters,Digikey.com,$3.82,$7.64,
+1,Bourns Inc. 3046L-3-502 Linear Position Potentiometer,Digikey.com,$14.35,$14.35,
+1,Adafruit Blue&White 16x2 LCD+Keypad Kit ,Adafruit.com,$19.95,$19.95,https://www.adafruit.com/products/1115
+4,M2-0.4 x 20mm Metric Socket Cap Screws,HomeDepot.com,$1.00,$4.00,
+4,M2-0.4 Steel Hex Nuts,HomeDepot.com,$1.00,$4.00,
+8,M2-0.4 Flat Washers,HomeDepot.com,$0.50,$4.00,
+2,Amber Professional Pellon Non-Woven Rolls,http://www.theindustrysource.com/,$16.99,$33.98,
+6,"1/4""-20 x2"" stainless phillips machine screws",HomeDepot.com,$0.50,$3.00,
+2,"1/2"" O.D. .257"" I.D. 1"" length nylon bushings",HomeDepot.com,$1.00,$2.00,
+6,"3/8"" x 1/2"" x 1-1/2"" metal bushings",HomeDepot.com,$1.00,$6.00,
+2,TE Connectivity AMP Connectors 282834-3 Terminal Blocks,Digikey.com,$1.51,$3.02,
+1,SODIAL IEC 320 C14 Male Plug 3 Pins PCB Panel Power Inlet Socket Connector ,Digikey.com,$2.00,$2.00,http://www.digikey.com/scripts/DkSearch/dksus.dll?Detail&itemSeq=174117518&uq=635698108684045928
+1,SPST On/Off Rocker Switch,Amazon.com,$2.00,$2.00,
+1,Switchcraft EHUSBBABX USB-B to USB-A Panel Mount Feed Through USB Barrel Connector,Markertek.com,$5.99,$5.99,
+1,"USB cable, 1.5 feet (A male to B male)",Markertek.com,$5.89,$5.89,http://www.markertek.com/product/trl-ur022-003/tripp-lite-ur022-003-usb-2-0-reversible-a-male-to-b-male-cable-3-ft
+1,"USB cable, 3 feet (A male to B male)",Markertek.com,$5.89,$5.89,http://www.markertek.com/product/trl-ur022-003/tripp-lite-ur022-003-usb-2-0-reversible-a-male-to-b-male-cable-3-ft
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,Parts Total,$444.24,
