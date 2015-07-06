@@ -22,10 +22,10 @@ module roller() {
 		color("black")
 		{	
 		cylinder(h=80, d=12.7, center = true, $fs=.001); //shaft dimension, 1/2" inch
-		cylinder(h=7.239, d=19.0246, $fs=.001); //bottom bearing offset, .285" wide, .749" diameter
+		cylinder(h=7.1438, d=19.0246, $fs=.001); //bottom bearing offset, .285" wide, .749" diameter
 		cylinder(h=2, d=19.05, center=true, $fs=.001); // overcuts bottom bearing offset
 		translate([0,0,13.589]) //.535" height to bearing offset
-		cylinder(h=7.239, d=19.0246, $fs=.001); //top bearing offset, .285" wide, .749" diameter
+		cylinder(h=7.1438, d=19.0246, $fs=.001); //top bearing offset, .285" wide, .749" diameter
 		translate([0,0,20]) //overcuts top bearing offset
 		cylinder(h=7.239, d=19.0246, $fs=.001); //top bearing offset, .285" wide, .749" diameter //7.1438	
 		translate([0,0,2.54])
