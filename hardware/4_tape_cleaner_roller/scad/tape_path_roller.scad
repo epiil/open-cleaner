@@ -4,7 +4,7 @@
 //in milimeters, inches are preferred
 
 
-$fn=100;
+$fn=1000;
 
 module roller() {
 
@@ -13,23 +13,26 @@ module roller() {
 		union() 
 		color("black")
 		{
-		cylinder(h=20.828, d=21.20, $fs=.01); // .820" total width .80 Inner width + 
-		cylinder(r=21.20, h=2.54, $fs=.01); //bottom flange, .1"
+		cylinder(h=20.828, d=31.75, $fs=.001); // .820" total width (height) + 1.25" diameter .80" Inner width + 
+		cylinder(h=2.54, d=36.8, $fs=.001); //bottom flange, .1" width, 1.45" outside diameter
 		translate([0,0,20.574]) //.810" height to top flange
-		cylinder(r=21.20, h=2.54, $fs=.01); //top flange, .1"
+		cylinder(h=2.54, d=36.83, $fs=.001); //top flange, .1" width, 1.45" outside diameter
 		}
 		union()
 		color("black")
 		{	
-		cylinder(h=80, d=12.7, center = true, $fs=.01); //shaft dimension, 1/2" inch
-		cylinder(h=7.239, d=19.0246, $fs=.01); //bottom bearing offset, .285" wide, .749" diameter
-		cylinder(h=2, d=19.05, center=true, $fs=.01); // overcuts bottom bearing offset
+		cylinder(h=80, d=12.7, center = true, $fs=.001); //shaft dimension, 1/2" inch
+		cylinder(h=7.239, d=19.0246, $fs=.001); //bottom bearing offset, .285" wide, .749" diameter
+		cylinder(h=2, d=19.05, center=true, $fs=.001); // overcuts bottom bearing offset
 		translate([0,0,13.589]) //.535" height to bearing offset
-		cylinder(h=7.239, d=19.0246, $fs=.01); //top bearing offset, .285" wide, .749" diameter
+		cylinder(h=7.239, d=19.0246, $fs=.001); //top bearing offset, .285" wide, .749" diameter
 		translate([0,0,20]) //overcuts top bearing offset
-		cylinder(h=7.239, d=19.0246, $fs=.01); //top bearing offset, .285" wide, .749" diameter
+		cylinder(h=7.239, d=19.0246, $fs=.001); //top bearing offset, .285" wide, .749" diameter
 		}
 	}
 }
 
 roller();
+
+
+//include radius cuts on top and bottom, .025
