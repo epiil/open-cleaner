@@ -62,6 +62,15 @@
 - (2) 1/2" O.D. .257" I.D. 1" length nylon bushings
 - (6) 3/8" x 1/2" x 1-1/2" metal bushings
 
+###Rollers
+
+- (4) 303 Stainless Steel Shaft with Retaining Ring Grooves, 1/4" OD, 3" Overall Length
+- (1) Steel Shim, Round, 19 Piece Assortment, 19 Thicknesses, 1/4" ID
+- (1) Stainless Steel External Retaining Ring, for 1/4" Shaft Diameter, packs of 10
+- (8) Steel Ball Bearing--ABEC-1, Double Shielded, No. R4A for 1/4" Shaft Diameter, 3/4" OD
+- (1) Type 316 Stainless Steel Button-Head Socket Cap Screw, 4-40 Thread, 1/2" Length, packs of 50
+- (2) Pololu Universal Aluminum Mounting Hub for 1/4″ Shaft, #4-40 Holes (2-Pack)
+
 ###Miscellaneous Wires/Connectors
 
 - (2) TE Connectivity AMP Connectors 282834-3 Terminal Blocks
