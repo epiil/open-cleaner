@@ -1,4 +1,12 @@
-##Parts List (Updated 6/13/2015)
+###Parts List (Updated 8/2/2015)
+
+Note: This parts list is a work-in-progress, and will be revised as parts are continuously tested. 
+
+There are a number of essential Opencleaner parts that currently aren't included on this list. They include:
+
+- (2) Motor Spindles. Currently these spindles are harvested from defunct 1/4" and 1/2" VTR machines. Since this is not a sustainable solution, more research is needed to machine/print modular spindles. 
+- (4) Stainless Steel Anti-Static Precision Rollers. The prototype Opencleaner currenly uses 3D-printed PLA precision rollers for testing purposes, with the associated printing schematics (.STL, .SCAD, etc.) included in this repo. However, these rollers need to be machined in anti-static stainless steel using a professsional vendor. 
+- (1) Tension roller assembly: The prototype currently employs a 1) NSK LE12-1 Linear Slide Bearing Block w/Rail 60mm x 24mm x 8.5mm, with travel matching the length of the Bourns linear potentiometer, and 2) mounting hardware for the associated precision roller. When moving Opencleaner out of prototype, the tension roller design will ultimately change to a preferred chassis (top) mounted device. 
 
 ###Enclosure
 
@@ -13,56 +21,41 @@
 
 ###Spindle Motors
 
-- (2) Spec TBD
+- (2) Pittman 9232 Series Commutated DC Servo Motors
 
 ###Pellon Motors
 
-- (2) DC 6V 30RPM Micro Speed Reduction Gear Motor with Metal Gearbox Wheel 3mm Shaft
+- (2) Standard Gearmotor - 1 RPM (3-12V)
 
-###Switching Power Supply (12VDC)
+###Power Supply 
 
-- (1) Spec TBD
-
-###Precision Guide Rollers
-
-- (4) Spec TBD
-
-###IR Distance Sensors
-
-- (2) Sharp GP2Y0A21YK0F IR Range Sensors
-- (2) SIRC-01 Sharp GP2 IR Sensor Cables
-- (4) M3-0.5 x 16mm Metric Socket Cap Screws
-- (4) M3-0.5 X 16mm Steel Hex Nuts
-- (2) IR distance sensor mounts (For 3D printing: https://github.com/epiil/open-cleaner/blob/master/hardware/3_ir_distance_sensor_holder/stl/ir_distance_sensor_holder.stl)
+- (1) AC 110-220V TO DC 12V/24V Regulated Transformer Power Supply
 
 ###Photo Interrupter Sensors (Option 1):
 
-- (2) OPTEK SENS OPTO SLOT 9.53MM TRANS C-MT Photointerrupters
+- (2) OPTEK 9.53MM Trans C-MT Photointerrupters
 
-###Photo Interrupter Sensors (Option 2):
-
-- (2) Photo Interrupters - GP1A57HRJ00F
-- (2) Sparkfun Photo Interrupter Breakout Board - GP1A57HRJ00F
-
-###Tension Arm
+###Linear Potentiometer
 
 - (1) Bourns Inc. 3046L-3-502 Linear Position Potentiometer
 
 ###LCD Interface and Keypad
 
+- (5) Micro Tactile Pushbutton Switch Cap Cover Protector, Black, 6x10mm
 - (1) Adafruit Blue&White 16x2 LCD+Keypad Kit 
 - (4) M2-0.4 x 20mm Metric Socket Cap Screws
 - (4) M2-0.4 Steel Hex Nuts
 - (8) M2-0.4 Flat Washers
 
-###Pellon Cleaning System
+###Pellon Cleaning System parts
 
-- (2) Amber Professional Pellon Non-Woven Rolls
+- (1) Pololu Universal Aluminum Mounting Hub for 1/4″ Shaft, #4-40 Holes (2-Pack)
+- (2) 303 Stainless Steel Shaft with Retaining Ring Grooves, 1/4" OD, 3" Overall Length
 - (6) 1/4"-20 x2" stainless phillips machine screws
 - (2) 1/2" O.D. .257" I.D. 1" length nylon bushings
 - (6) 3/8" x 1/2" x 1-1/2" metal bushings
 
-###Rollers
+###Precision Rollers
 
 - (4) 303 Stainless Steel Shaft with Retaining Ring Grooves, 1/4" OD, 3" Overall Length
 - (1) Steel Shim, Round, 19 Piece Assortment, 19 Thicknesses, 1/4" ID
@@ -74,10 +67,8 @@
 ###Miscellaneous Wires/Connectors
 
 - (2) TE Connectivity AMP Connectors 282834-3 Terminal Blocks
-- (1) SODIAL IEC 320 C14 Male Plug 3 Pins PCB Panel Power Inlet Socket Connector 
-- (1) SPST On/Off Rocker Switch
-- (1) Switchcraft EHUSBBABX USB-B to USB-A Panel Mount Feed Through USB Barrel Connector
-- (1) USB cable, 1.5 feet
+- (1) Green LED Rocker Switch Fuse Holder IEC320 C14 Inlet Power Socket AC250V 10A
+- (1) Automotive Jumper Two-Wire Assembly (Molex A and B connectors)
 - (1) USB cable, 3 feet
 
 
