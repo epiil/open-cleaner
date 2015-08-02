@@ -1,6 +1,6 @@
 ###Parts List (Updated 8/2/2015)
 
-Note: This parts list is a work-in-progress, and will be revised as parts are continuously tested. 
+Note: This parts list is a work-in-progress, and will be revised as parts are continuously tested. Please see /partslist/OpenCleanerPartsList.csv for associated parts vendors and prices. 
 
 There are a number of essential Opencleaner parts that currently aren't included on this list. They include:
 
