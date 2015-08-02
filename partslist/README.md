@@ -70,6 +70,8 @@ There are a number of essential Opencleaner parts that currently aren't included
 - (1) Green LED Rocker Switch Fuse Holder IEC320 C14 Inlet Power Socket AC250V 10A
 - (1) Automotive Jumper Two-Wire Assembly (Molex A and B connectors)
 - (1) USB cable, 3 feet
+- (1) Hook-Up Wire Kit (Solid Wire Kit - 22 Gauge, 25 ft. Spools)
+- (2) Resistor 1k Ohm 1/6 Watt PTH
 
 
 
