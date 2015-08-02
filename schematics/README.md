@@ -1,4 +1,4 @@
--/ComponentSchematics - contains fact sheets for inividual components
+- /ComponentSchematics - contains fact sheets for inividual components
 
 - /png - contains .png image of associated schematic
 
