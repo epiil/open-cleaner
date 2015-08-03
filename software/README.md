@@ -1,5 +1,8 @@
 ###CHANGELOG
 
+####0.9.0.3 - 2 Aug 2015
+- basic keypad fucntionality (FORWARD, REVERSE, STOP, BRAKE)
+
 ####0.9.0.2 - 25 July 2015
 - combined FORWARD, REVERSE, and STOP spindle motor functions
 
