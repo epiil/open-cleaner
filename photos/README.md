@@ -33,3 +33,28 @@
 ####2015-07-24 18.03.04.jpg
 
 - Adafruit 16x2 LCD/Keypad (back view) with wiring configuration
+
+####DSC05292.JPG
+
+- Enclosure prototype (front view)
+
+####DSC05295.JPG
+
+- Supply side path with prototype rollers, tension roller
+
+####DSC05318.JPG
+
+- partial top (exposed) view with motor shield / LCD shield
+
+####DSC05313.JPG
+
+- Arduino, Adafruit Motor Shield, LCD Shield (back) with associated wiring, supply-side motor spindle
+
+####DSC05311.JPG
+
+- 12VDC Power supply wiring
+
+####DSC05310.JPG
+
+- 12VDC Power supply wiring with IEC320 inlet power socket
+
