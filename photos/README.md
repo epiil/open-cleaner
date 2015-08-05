@@ -1,3 +1,5 @@
+![alt text](https://github.com/epiil/open-cleaner/blob/master/photos/2015-06-15%2015.39.20.jpg "Logo Title Text 1")
+
 ####2015-06-15 15.39.20.jpg
 
 - Arduino MEGA 2560 Microprocessor, Adafruit Motor Shield with unmodified prototyping area, Adafruit 16x2 LCD/Keypad for Raspberry Pi
