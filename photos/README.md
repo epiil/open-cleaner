@@ -58,11 +58,11 @@
 
 - 12VDC Power supply wiring with IEC320 inlet power socket
 
-![alt text]( "12VDC Power supply wiring with IEC320 inlet power socket")
+![alt text](https://github.com/epiil/open-cleaner/blob/master/photos/photos/2015-08-16%2016.00.31.jpg "12VDC Power supply wiring with IEC320 inlet power socket")
 
 - Soldering 1RPM Pellon motors 
 
-![alt text]( "12VDC Power supply wiring with IEC320 inlet power socket")
+![alt text](https://github.com/epiil/open-cleaner/blob/master/photos/photos/2015-08-16%2016.02.46.jpg "12VDC Power supply wiring with IEC320 inlet power socket")
 
 - Soldering 1RPM Pellon motors 
 
