@@ -3,7 +3,6 @@
 //Designed for 1/4" shaft
 //in milimeters, inches are preferred
 
-
 $fn=1000;
 
 module roller() {
@@ -63,7 +62,6 @@ module rollerbias1() {
 }
 
 rollerbias1();
-
 
 
 //include radius cuts on top and bottom, .025
