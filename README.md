@@ -17,5 +17,7 @@ Opencleaner consists of a dual-motor spindle drivetrain that moves the tape thro
 
 - /partslist - contains inventory and pricelist of associated parts, updated regularly. 
 
-- /photos - in-progress photos
+- /photos - photo gallery
+
+- /assembly - assembly instructions
 
