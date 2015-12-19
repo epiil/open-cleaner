@@ -94,7 +94,7 @@ Using this wire, make the following connections:
 
 - Connect DIGITAL I/O 3 to Pin 2 of the first 3-pin terminal block. 
 - Connect DIGITAL I/O 2 to Pin 2 of the second 3-pin terminal block. 
-- Connect ANALOG I/O 3 to Pin 2 of the THURD 3-pin terminal block. 
+- Connect ANALOG I/O 3 to Pin 2 of the third 3-pin terminal block. 
 
 ![alt text](https://github.com/epiil/open-cleaner/blob/master/photos/photos/PhotointerrupterPotAssembly/PhotointerrupterPotAssembly_005.JPG " ")
 
