@@ -9,15 +9,15 @@ Opencleaner consists of a dual-motor spindle drivetrain that moves the tape thro
 
 ##Repository Contents:
 
-- /hardware - contains .scad, .dxf and .stl files for enclosure and spindle fabrication. All 2D/3D modeling is done with OpenSCAD (http://www.openscad.org/). Note that associated .stl 3D files are viewable on Github. 
+- /hardware - contains .scad, .dxf and .stl files for enclosure and spindle fabrication. 2D/3D modeling is done with OpenSCAD (http://www.openscad.org/) and later, AutoCAD. 
 
 - /software - contains .ino Arduino "sketches" and associated libraries (http://www.arduino.cc/).
 
-- /schematics - contains .sch schematic files done in Eagle (http://www.cadsoftusa.com/).
+- /schematics - contains .sch and .pdf schematic files done in Eagle (http://www.cadsoftusa.com/).
 
-- /partslist - contains inventory and pricelist of associated parts, updated regularly. 
+- /bom - contains bill of materials
 
-- /photos - photo gallery
+- /photos - contains photo gallery
 
-- /assembly - assembly instructions
+- /assembly - contains assembly instructions with photo documentation. 
 
