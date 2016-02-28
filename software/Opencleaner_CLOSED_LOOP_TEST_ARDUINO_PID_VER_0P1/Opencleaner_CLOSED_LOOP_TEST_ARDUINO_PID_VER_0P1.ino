@@ -95,10 +95,10 @@ https://github.com/epiil/open-cleaner
 // Creates motor shield object with alternate 0x61 I2C address
 Adafruit_MotorShield AFMS = Adafruit_MotorShield(0X61); 
 // Selects ports for spindle and pellon motors
-Adafruit_DCMotor *spindlesupplyMotor = AFMS.getMotor(1);
-Adafruit_DCMotor *spindletakeupMotor = AFMS.getMotor(2);
-Adafruit_DCMotor *pellonMotor1 = AFMS.getMotor(3);
-Adafruit_DCMotor *pellonMotor2 = AFMS.getMotor(4);
+Adafruit_DCMotor *spindlesupplyMotor = AFMS.getMotor(3);
+Adafruit_DCMotor *spindletakeupMotor = AFMS.getMotor(4);
+Adafruit_DCMotor *pellonMotor1 = AFMS.getMotor(1);
+Adafruit_DCMotor *pellonMotor2 = AFMS.getMotor(2);
 
 // LCD shield instantiation
 
@@ -118,10 +118,10 @@ Adafruit_DCMotor *pellonMotor2 = AFMS.getMotor(4);
 // Pin definitions
 
 #define LED 13
-#define TAPE_SPEED_OPTO 4
+#define TAPE_SPEED_OPTO 5
 // Photointerrupter pins
 #define photointerrupt1 3
-#define photointerrupt2 5
+#define photointerrupt2 4
 #define tensionRoller A3
 
 // --------------------------------------- Variables -------------------------------------
@@ -463,7 +463,7 @@ pinMode(photointerrupt2,INPUT_PULLUP);
 //         OF A BOARD THAT HAS NEVER HAD THE EEPROM WIRTTEN TOO.
 //         DO IT ONCE AND THEN UN-COMMMENT.
 //         THE PARAMS ARE WRITTEN TO FROM THE VB APP AFTER THAT.
-/*
+
 EEPROM.writeDouble(spindletakeupMotor_PID_Kp_EEPROM_ADDRESS,0.05);
 EEPROM.writeDouble(spindletakeupMotor_PID_Ki_EEPROM_ADDRESS,0.1);
 EEPROM.writeDouble(spindletakeupMotor_PID_Kd_EEPROM_ADDRESS,0.1);
@@ -481,7 +481,7 @@ EEPROM.writeInt(spindlesupplyMotor_closed_loop_DIRECTION_EEPROM_ADDRESS,FORWARD)
 EEPROM.writeDouble(tensionRoller_POT_VOLTAGE_SETPOINT_EEPROM_ADDRESS,700.0);
 
 // ===============  END EEPROM INITIALIZATION =========================
-*/
+
 spindletakeupMotor_PID_Kp = EEPROM.readDouble(spindletakeupMotor_PID_Kp_EEPROM_ADDRESS);
 spindletakeupMotor_PID_Ki = EEPROM.readDouble(spindletakeupMotor_PID_Ki_EEPROM_ADDRESS);
 spindletakeupMotor_PID_Kd = EEPROM.readDouble(spindletakeupMotor_PID_Kd_EEPROM_ADDRESS);
