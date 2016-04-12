@@ -1,16 +1,7 @@
 /* 
-CLOSED LOOP TEST PROGRAM
-12/29/15
-T. WOOLAVER
-STARTED WITH Opencleaner Arduino Sketch Version 1.0.0.0 to write this
-which was Revised 20 December 2015.
-Lots of stuff commented out
-No LCD Buttons
-
-Other changes
-Changed the baud rate of the serial port from 9600 to 115200.
-Added a 100 msec timer to the main loop.
-Added a timer unterrupt service routine that fires every 1 msec used to sample feedeback from servo loops.
+Opencleaner
+10 April 2016
+T. Woolaver and E. Piil
 https://github.com/epiil/open-cleaner
 */
 
@@ -93,29 +84,37 @@ https://github.com/epiil/open-cleaner
 
 // Creates motor shield object with alternate 0x61 I2C address
 Adafruit_MotorShield AFMS = Adafruit_MotorShield(0X61); 
-// Selects ports for spindle and pellon motors
-Adafruit_DCMotor *spindlesupplyMotor = AFMS.getMotor(3);
-Adafruit_DCMotor *spindletakeupMotor = AFMS.getMotor(4);
-Adafruit_DCMotor *pellonMotor1 = AFMS.getMotor(1);
-Adafruit_DCMotor *pellonMotor2 = AFMS.getMotor(2);
+// Selects ports for pellon motors
+Adafruit_DCMotor *pellonMotor1 = AFMS.getMotor(3);
+Adafruit_DCMotor *pellonMotor2 = AFMS.getMotor(4);
+
+//MC3886 Motor Drivers
+#define spindlesupplyMotor_IN3 9
+#define spindlesupplyMotor_IN4 10
+#define spindletakeupMotor_IN1 11
+#define spindletakeupMotor_IN2 12
+
+int spindletakeupMotor_PWM = 100;
+int spindlesupplyMotor_PWM = 100;
+int spindletakeupMotor_PWM_COUNTER = 0;
+int spindlesupplyMotor_PWM_COUNTER = 0;
+
+int spindletakeupMotor_DIR = 0;
+int spindlesupplyMotor_DIR = 0;
+boolean spindletakeupMotor_RUN_FLAG = false;
+boolean spindlesupplyMotor_RUN_FLAG = false;
+int spindletakeupMotorSpeed = 100;
+int spindlesupplyMotorSpeed = 100;
 
 // LCD shield instantiation
 
 // Creates LCD shield object
-//Adafruit_RGBLCDShield lcd = Adafruit_RGBLCDShield();
+Adafruit_RGBLCDShield lcd = Adafruit_RGBLCDShield();
 // These #defines make it easy to set the backlight color
-#define RED 0x1
-#define YELLOW 0x3
-#define GREEN 0x2
-#define TEAL 0x6
-#define BLUE 0x4
-#define VIOLET 0x5
 #define WHITE 0x7
-
 #define BUTTON_SHIFT BUTTON_SELECT
 
 // Pin definitions
-
 #define LED 13
 #define TAPE_SPEED_OPTO 5
 // Photointerrupter pins
@@ -136,7 +135,6 @@ uint8_t DIR_RELEASE_BRAKE = BRAKE;  // Global Parameter used with the run comman
                                     // #define BACKWARD 2
                                     // #define BRAKE 3
                                     // #define RELEASE 4 
-
 
 //Tape Speed Optical sensor
 
@@ -194,7 +192,6 @@ unsigned long MAIN_LOOP_TIMER = 0;
 const unsigned long   MAIN_LOOP_TIMER_INCREMENT = 50; //50 msec
 unsigned long  CURRENT_TIME = 0;
  
-
 // Serail Comm Variables
 
 String inputString = "";              // a string to hold incoming data
@@ -209,8 +206,6 @@ boolean photointState1 = true;
 boolean photointState2 = true;
 
 // Motor variables
-int spindlesupplyMotorSpeed = 0;
-int spindletakeupMotorSpeed = 0;
 int pellonMotor1Speed = 0;
 int pellonMotor2Speed = 0;
 boolean spindletakeupMotorSpeed_OPEN_LOOP_RUN_FLAG = false;
@@ -221,21 +216,19 @@ spindletakeupMotor_PID_Kp,spindletakeupMotor_PID_Ki,spindletakeupMotor_PID_Kd,RE
 
 PID spindlesupplyMotor_PID(&tensionRoller_POT_VOLTAGE_READING_DOUBLE,&spindlesupplyMotorSpeed_CLOSED_LOOP,
 &tensionRoller_POT_VOLTAGE_SETPOINT, spindlesupplyMotor_PID_Kp, spindlesupplyMotor_PID_Ki, spindlesupplyMotor_PID_Kd,DIRECT); 
- 
 
 // General functions
 
 // Toggles arduino on-board LED for easy debugging
-//void toggle_LED(void)  
-//{
-//  LED_STATE = !LED_STATE;
-//  digitalWrite(LED, LED_STATE);
-//}
+void toggle_LED(void)  
+{
+//LED_STATE = !LED_STATE;
+//digitalWrite(LED, LED_STATE);
+}
 
 void SHOW_MOTOR_COMMAND_CHOICES(void)
-{
- /* 
-   Serial.println(F("1 (Run spindlesupplyMotor Forward at current speed"));
+{ 
+  Serial.println(F("1 (Run spindlesupplyMotor Forward at current speed"));
   Serial.println(F("2 Run spindlesupplyMotor Backward at current speed"));
   Serial.println(F("3 Brake spindlesupplyMotor"));
   Serial.println(F("4 STOP spindlesupplyMotor"));
@@ -267,7 +260,6 @@ void SHOW_MOTOR_COMMAND_CHOICES(void)
   Serial.println(F("O Run the spindletakeupMotor at closed loop speed"));
 
   Serial.println(F("P Run spindlesupplyMotor at closed loop tension"));
-  */
 }
 
 // Serial Port Support
@@ -296,12 +288,12 @@ void PARSE_COMMAND (String COMMAND_STRING)
     count++;
     }
   }
-//  switch (COMMAND)
-//  { 
-//  case SET_LCD_STRING:
-//    LCD_STRING = PARAMETER_STRING;
-//  break;
-//  }
+  switch (COMMAND)
+  { 
+  //case SET_LCD_STRING:
+  //  LCD_STRING = PARAMETER_STRING;
+  break;
+  }
   COMMAND_PARAMETER = PARAMETER_STRING.toInt();
   COMMAND_PARAMETER_DOUBLE = PARAMETER_STRING.toFloat();
   PARAMETER_STRING = "";
@@ -312,9 +304,77 @@ void TIMER_ISR(void)
 {
 // Timer interrupt service routine.
 // Fires once every 1 msec. all the time.
-// NOTE:  I tried updating the motor speed in side theis ISR.  It dies not work.  No motor shield functions
-// can be called from inside any ISR since they must use interrupts for the I2C interface and interrupts are
-// disabled when ISRs fire.  Consequently, the speed update is called in the timer loop inside the main loop
+
+//MC3886 Motor Drivers
+
+if(spindletakeupMotor_RUN_FLAG)
+{
+  spindletakeupMotor_PWM_COUNTER++;
+  if(spindletakeupMotor_PWM_COUNTER >=255)
+  { 
+    spindletakeupMotor_PWM_COUNTER = 0;
+  }
+  switch(spindletakeupMotor_DIR)
+  {
+    case FORWARD:
+      digitalWrite(spindletakeupMotor_IN1,LOW);
+      if(spindletakeupMotor_PWM_COUNTER >= spindletakeupMotor_PWM) 
+      {
+         digitalWrite(spindletakeupMotor_IN2,LOW);
+      }
+         else
+      {
+         digitalWrite(spindletakeupMotor_IN2,HIGH);
+      }
+    break;
+    case BACKWARD:
+      digitalWrite(spindletakeupMotor_IN2,LOW);
+      if(spindletakeupMotor_PWM_COUNTER >= spindletakeupMotor_PWM) 
+      {
+         digitalWrite(spindletakeupMotor_IN1,LOW);
+      }
+         else
+      {
+         digitalWrite(spindletakeupMotor_IN1,HIGH);
+      }
+    break;
+  }// end switch(spindletakeupMotor_DIR)
+}
+
+if(spindlesupplyMotor_RUN_FLAG)
+{
+  spindlesupplyMotor_PWM_COUNTER++;
+  if(spindlesupplyMotor_PWM_COUNTER >=255)
+  { 
+    spindlesupplyMotor_PWM_COUNTER = 0;
+  }
+  switch(spindlesupplyMotor_DIR)
+  {
+    case FORWARD:
+      digitalWrite(spindlesupplyMotor_IN3,LOW);
+      if(spindlesupplyMotor_PWM_COUNTER >= spindlesupplyMotor_PWM) 
+      {
+         digitalWrite(spindlesupplyMotor_IN4,LOW);
+      }
+         else
+      {
+         digitalWrite(spindlesupplyMotor_IN4,HIGH);
+      }
+    break;
+    case BACKWARD:
+      digitalWrite(spindlesupplyMotor_IN3,LOW);
+      if(spindlesupplyMotor_PWM_COUNTER >= spindlesupplyMotor_PWM) 
+      {
+         digitalWrite(spindlesupplyMotor_IN3,LOW);
+      }
+         else
+      {
+         digitalWrite(spindlesupplyMotor_IN3,HIGH);
+      }
+    break;
+  }// end switch(spindlesupplyMotor_DIR)
+}
+
 //-------------------------- Tape Speed Monitor ---------------------------
 //    toggle_LED();
 //    if(spindlesupplyMotor_CLOSED_LOOP_TENSION_RUN_FLAG)
@@ -333,7 +393,7 @@ void TIMER_ISR(void)
       if (!TAPE_SPEED_OPTO_STATE && LAST_TAPE_SPEED_OPTO_STATE)
       {
           TAPE_SPEED_PERIOD = TAPE_SPEED_COUNTER;                               // Read the time from the last pulse on the OPTO.
-          TAPE_SPEED_PERIOD_DOUBLE = (double)( TAPE_SPEED_PERIOD);
+          TAPE_SPEED_PERIOD_DOUBLE = 25.0*((double)(TAPE_SPEED_PERIOD));
           CALCULATE_spindletakupMotor_CLOSED_LOOP_SPEED_ERROR_AND_CORRECT();
           TAPE_SPEED_COUNTER = 0;   
       }
@@ -383,6 +443,66 @@ void TIMER_ISR(void)
 // motorname->setSpeed(SPEED)
 // where SPEED is 0 to 255 with 0 as the slowest
 
+//MC3886 Motor Drivers
+
+void spindletakeupMotor_SET_SPEED(int SPEED)
+{
+  spindletakeupMotor_PWM = SPEED;
+}
+
+void spindletakeupMotor_RUN(int DIRECTION)
+{
+  spindletakeupMotor_DIR = DIRECTION;
+  switch (DIRECTION)
+  {
+  case FORWARD:
+    spindletakeupMotor_RUN_FLAG = true;
+  break;
+  case BACKWARD:
+    spindletakeupMotor_RUN_FLAG = true;
+  break;
+  case BRAKE:
+    spindletakeupMotor_RUN_FLAG = false;
+    digitalWrite(spindletakeupMotor_IN1,LOW);
+    analogWrite(spindletakeupMotor_IN2,LOW);
+  break;
+  case RELEASE: 
+    spindletakeupMotor_RUN_FLAG = false;
+    digitalWrite(spindletakeupMotor_IN1,LOW);
+    analogWrite(spindletakeupMotor_IN2,LOW);
+  break;
+  }
+}
+
+void spindlesupplyMotor_SET_SPEED(int SPEED)
+{
+  spindlesupplyMotor_PWM = SPEED;
+}
+
+void spindlesupplyMotor_RUN(int DIRECTION)
+{
+  spindlesupplyMotor_DIR = DIRECTION;
+  switch (DIRECTION)
+  {
+  case FORWARD:
+    spindlesupplyMotor_RUN_FLAG = true;
+  break;
+  case BACKWARD:
+    spindlesupplyMotor_RUN_FLAG = true;
+  break;
+  case BRAKE:
+    spindlesupplyMotor_RUN_FLAG = false;
+    digitalWrite(spindlesupplyMotor_IN3,LOW);
+    analogWrite(spindlesupplyMotor_IN4,LOW);
+  break;
+  case RELEASE: 
+    spindlesupplyMotor_RUN_FLAG = false;
+    digitalWrite(spindlesupplyMotor_IN3,LOW);
+    analogWrite(spindlesupplyMotor_IN4,LOW);
+  break;
+  }
+}
+
 //--------------------------------- CLOSED LOOP TEST FUNCTIONS -----------------------------------
 
 void RUN_spindletakupMotor_AT_CLOSED_LOOP_SPEED(float CL_SPEED, int DIRECTION)
@@ -398,7 +518,7 @@ void RUN_spindletakupMotor_AT_CLOSED_LOOP_SPEED(float CL_SPEED, int DIRECTION)
    spindletakeupMotor_CLOSED_LOOP_SPEED_RUN_FLAG = true;
    Serial.print("DESURED PERIOD = ");
    Serial.println(INPUT_PERIOD); 
-   spindletakeupMotor->run(DIRECTION);
+   spindletakeupMotor_RUN(DIRECTION);
   spindletakeupMotor_PID.SetMode(AUTOMATIC); 
 }
 
@@ -416,7 +536,7 @@ void RUN_spindlesupplyMotor_at_CLOSED_LOOP_TENSION(double Tension_POT_Setting,in
   tensionRoller_POT_VOLTAGE_SETPOINT = Tension_POT_Setting;
   spindlesupplyMotor_CLOSED_LOOP_TENSION_RUN_FLAG = true;
   spindlesupplyMotor_PID.SetMode(AUTOMATIC); 
-  spindlesupplyMotor->run(DIRECTION);
+  spindlesupplyMotor_RUN(DIRECTION);
 }
 
 //------------------------------END CLOSED LOOP TEST FUNCTIONS -----------------------------------
@@ -425,7 +545,18 @@ void RUN_spindlesupplyMotor_at_CLOSED_LOOP_TENSION(double Tension_POT_Setting,in
 void setup() 
 {
 // set up Serial library at 115200 bps
-  Serial.begin(9600);           
+  Serial.begin(9600);     
+
+// Initialize LCD Display 
+  lcd.begin(16, 2); // Set up LCD's number of columns and rows 
+  lcd.setCursor(0,0);
+  lcd.setBacklight(WHITE); 
+  lcd.print("Opencleaner"); //Opening screen
+  lcd.setCursor(0, 1);  // (note: line 1 is the second row, since counting begins with 0):
+  lcd.print("Version 1.0.0.0"); 
+  delay(5000);
+  lcd.clear();
+  lcd.print("Select Function");   
 
 // Arduino I/O pins I/O setup
 
@@ -433,10 +564,14 @@ pinMode(LED,OUTPUT);
 pinMode(TAPE_SPEED_OPTO,INPUT);
 pinMode(photointerrupt1,INPUT_PULLUP);
 pinMode(photointerrupt2,INPUT_PULLUP);
+pinMode(spindletakeupMotor_IN1,OUTPUT);
+pinMode(spindletakeupMotor_IN2,OUTPUT);
+pinMode(spindlesupplyMotor_IN3,OUTPUT);
+pinMode(spindlesupplyMotor_IN4,OUTPUT);
 
 // Timer initialization 
 
-  Timer1.initialize(1000);              // Set the timer resolution to 1 msec.  (1000 usec.) 
+  Timer1.initialize(40);              // Set the timer resolution to 1000 usec.
   Timer1.attachInterrupt(TIMER_ISR);
 
 //Read Parameters from EEPROM
@@ -509,10 +644,10 @@ tensionRoller_POT_VOLTAGE_SETPOINT = EEPROM.readDouble(tensionRoller_POT_VOLTAGE
 // NOTEL  We always use the speed variables i.e spindlesupplyMotorSpeed so we can query the speed at any time  
  
   spindlesupplyMotorSpeed = 60;
-  spindlesupplyMotor->setSpeed(spindlesupplyMotorSpeed);
+  spindlesupplyMotor_SET_SPEED(spindlesupplyMotorSpeed);
 
   spindletakeupMotorSpeed = 10;
-  spindletakeupMotor->setSpeed(spindletakeupMotorSpeed);
+  spindletakeupMotor_SET_SPEED(spindletakeupMotorSpeed);
 
   pellonMotor1Speed = 60;
   pellonMotor1->setSpeed(pellonMotor1Speed);
@@ -521,24 +656,12 @@ tensionRoller_POT_VOLTAGE_SETPOINT = EEPROM.readDouble(tensionRoller_POT_VOLTAGE
   pellonMotor2->setSpeed(pellonMotor2Speed); 
   
   // Turn all motor off.  Free wheeling
-  spindlesupplyMotor->run(RELEASE);
-  spindletakeupMotor->run(RELEASE);
+  spindlesupplyMotor_RUN(RELEASE);
+  spindletakeupMotor_RUN(RELEASE);
   pellonMotor1->run(RELEASE);
   pellonMotor2->run(RELEASE);
   SHOW_MOTOR_COMMAND_CHOICES();
-  
-// Initialize LCD Display 
-/*
-  lcd.begin(16, 2); // Set up LCD's number of columns and rows 
-  lcd.setCursor(0,0);
-  lcd.setBacklight(WHITE); 
-  lcd.print("Opencleaner"); //Opening screen
-  lcd.setCursor(0, 1);  // (note: line 1 is the second row, since counting begins with 0):
-  lcd.print("Version 1.0.0.0"); 
-  delay(5000);
-  lcd.clear();
-  lcd.print("Select Function"); 
-  */
+
 //  MAIN_LOOP_TIMER SETUP
 
 CURRENT_TIME = millis();
@@ -710,117 +833,66 @@ Display Functions
        {
         spindletakeupMotor_PID.Compute();
         spindletakeupMotorSpeed = (int)(spindletakeupMotorSpeed_CLOSED_LOOP);
-        spindletakeupMotor->setSpeed(spindletakeupMotorSpeed);   
+        spindletakeupMotor_SET_SPEED(spindletakeupMotorSpeed);   
        }
      
        if(spindlesupplyMotor_CLOSED_LOOP_TENSION_RUN_FLAG)
        {
         spindlesupplyMotor_PID.Compute();
         spindlesupplyMotorSpeed = (int)(spindlesupplyMotorSpeed_CLOSED_LOOP);
-        spindlesupplyMotor->setSpeed(spindlesupplyMotorSpeed);
+        spindlesupplyMotor_SET_SPEED(spindlesupplyMotorSpeed);
        }
 
 // ---------------------END ARDUINO PID INPLEMENTATION ------------------------
 
-/*   lcd.setBacklight(WHITE);
+lcd.setBacklight(WHITE);
    uint8_t buttons = lcd.readButtons();
 
   if (buttons) {
     lcd.clear();
     lcd.setCursor(0,0);
     if (buttons & BUTTON_UP) {
-      lcd.print("Brake Motors ");
-      spindlesupplyMotor->run(RELEASE);
-      spindletakeupMotor->run(RELEASE);
-	  pellonMotor1->run(RELEASE);
-	  pellonMotor2->run(RELEASE);
+      lcd.print("Pellon Engaged ");
+	  pellonMotor1->run(FORWARD);
+	  pellonMotor2->run(FORWARD);
     }
     if (buttons & BUTTON_DOWN) {
-      lcd.print("Stop Tape ");
-      spindlesupplyMotor->run(FORWARD);
-      spindlesupplyMotor->setSpeed(230);
-      spindletakeupMotor->run(FORWARD);
-      spindletakeupMotor->setSpeed(230);
+      lcd.print("Pellon Stopped ");
 	  pellonMotor1->run(RELEASE);
 	  pellonMotor2->run(RELEASE);
     }
     if (buttons & BUTTON_LEFT) {
       lcd.print("REVERSE TAPE ");
-      spindlesupplyMotor->run(FORWARD);
-      spindlesupplyMotor->setSpeed(210);
-      spindletakeupMotor->run(FORWARD);
-      spindletakeupMotor->setSpeed(30);
-	  pellonMotor1->run(FORWARD);
-	  pellonMotor2->run(FORWARD);
-	  delay(20000);
-	  spindletakeupMotor->setSpeed(25);
-	  spindlesupplyMotor->setSpeed(215);
-	  delay(20000);
-	  spindletakeupMotor->setSpeed(20);
-	  spindlesupplyMotor->setSpeed(220);
-	  delay(20000);
-	  spindletakeupMotor->setSpeed(15);
-	  spindlesupplyMotor->setSpeed(225);
-	  delay(20000);
-	  spindletakeupMotor->setSpeed(10);
-	  spindlesupplyMotor->setSpeed(230);
-	  delay(20000);
-	  spindletakeupMotor->setSpeed(5);
-	  spindlesupplyMotor->setSpeed(235);
+      spindlesupplyMotor_RUN(BACKWARD);
+
     }
     if (buttons & BUTTON_RIGHT) {
       lcd.print("FORWARD TAPE ");
-      spindlesupplyMotor->run(FORWARD);
-	  spindlesupplyMotor->setSpeed(30);
-      spindletakeupMotor->run(FORWARD);
-      spindletakeupMotor->setSpeed(210);
-	  pellonMotor1->run(FORWARD);
-	  pellonMotor2->run(FORWARD);
-	  delay(20000);
-      spindlesupplyMotor->setSpeed(25);
-	  spindletakeupMotor->setSpeed(215);
-	  delay(20000);
-	  spindlesupplyMotor->setSpeed(20);
-	  spindletakeupMotor->setSpeed(220);
-	  delay(20000);
-	  spindlesupplyMotor->setSpeed(15);
-	  spindletakeupMotor->setSpeed(225);
-	  delay(20000);
-	  spindlesupplyMotor->setSpeed(10);
-	  spindletakeupMotor->setSpeed(230);
-	  delay(20000);
-	  spindlesupplyMotor->setSpeed(5);
-	  spindletakeupMotor->setSpeed(235);
+      spindlesupplyMotor_RUN(BACKWARD);
+      spindletakeupMotor_CLOSED_LOOP_SPEED_COMMAND = COMMAND_PARAMETER;
+      delay(1000);
+      RUN_spindletakupMotor_AT_CLOSED_LOOP_SPEED(spindletakeupMotor_CLOSED_LOOP_SPEED_COMMAND,
+      spindletakeupMotor_closed_loop_DIRECTION); 
+
     }
     if (buttons & BUTTON_SELECT) {
       lcd.print("IDLE ");
-      spindlesupplyMotor->run(FORWARD);
-      spindlesupplyMotor->setSpeed(20);
-      spindletakeupMotor->run(FORWARD);
-      spindletakeupMotor->setSpeed(20);
-	  pellonMotor1->run(RELEASE);
-	  pellonMotor2->run(RELEASE);
+      spindlesupplyMotor_RUN(RELEASE);
+      spindletakeupMotor_RUN(RELEASE);
     }
   }
   
   // read photointerrupter state
-  int photointState1 = digitalRead(photointerrupt1);
-  int photointState2 = digitalRead(photointerrupt2);
+  //int photointState1 = digitalRead(photointerrupt1);
+  //int photointState2 = digitalRead(photointerrupt2);
   
   //read tension potentiometer state
-  val = analogRead(tensionRoller);
+  //val = analogRead(tensionRoller);
   
   //print photointerrupter and potentiometer readings   
   lcd.setCursor(0,1);
-  lcd.print("SP  TP  POT      ");
-  lcd.setCursor(3,1);
-  lcd.print(photointState1);
-  lcd.setCursor(7,1);
-  lcd.print(photointState2);
-  lcd.setCursor(12,1);
-  lcd.print(val);
+  lcd.print(TAPE_SPEED_OPTO_STATE);
   delay(500);        // delay in between reads for stability
-*/
 
 // ----------------------------- Serial Port Interface ------------------------------
 // Nothing in here runs unless ther is data in the serial FIFO
@@ -828,9 +900,9 @@ Display Functions
  if (stringComplete) 
  {
    PARSE_COMMAND (inputString); 
-    //Serial.print(COMMAND); 
-    //Serial.print(COMMAND_PARAMETER); 
-  //Serial.print('\n');
+    Serial.print(COMMAND); 
+    Serial.print(COMMAND_PARAMETER); 
+  Serial.print('\n');
   switch (COMMAND)
   {
 // ==============================================
@@ -841,14 +913,14 @@ Display Functions
 //	    lcd.clear();
 //	    lcd.setCursor(0,0);
 //	    lcd.print("FORWARD ");
-      spindlesupplyMotor->run(FORWARD);
+      spindlesupplyMotor_RUN(FORWARD);
     break;
 //------------------------------------------------ 
    case Run_spindlesupplyMotor_Backward_at_current_Speed: 
 //	    lcd.clear();
 //	    lcd.setCursor(0,0);
 //	    lcd.print("BACKWARD ");
-      spindlesupplyMotor->run(BACKWARD);
+      spindlesupplyMotor_RUN(BACKWARD);
    break;
 //------------------------------------------------ 
    case SET_spindlesupplyMotor_closed_loop_DIRECTION:
@@ -857,7 +929,7 @@ Display Functions
 //------------------------------------------------ 
    case STOP_spindlesupplyMotor:
       spindlesupplyMotor_CLOSED_LOOP_TENSION_RUN_FLAG = false;
-      spindlesupplyMotor->run(RELEASE);
+      spindlesupplyMotor_RUN(RELEASE);
     break;
 //------------------------------------------------ 
    case Set_spindlesupplyMotor_Speed:
@@ -865,17 +937,17 @@ Display Functions
       Serial.println(spindlesupplyMotorSpeed);
       Serial.println(F("Enter spindlesupplyMotorSpeed(0-255)"));
       spindlesupplyMotorSpeed  = COMMAND_PARAMETER;
-      spindlesupplyMotor->setSpeed(spindlesupplyMotorSpeed);
+      spindlesupplyMotor_SET_SPEED(spindlesupplyMotorSpeed);
       SHOW_MOTOR_COMMAND_CHOICES();
    break;
 //------------------------------------------------ 
-	 case Run_spindletakeupMotor_Forward_at_current_Speed:
-      spindletakeupMotor->run(FORWARD);
+      case Run_spindletakeupMotor_Forward_at_current_Speed:
+      spindletakeupMotor_RUN(FORWARD);
       spindletakeupMotorSpeed_OPEN_LOOP_RUN_FLAG = true;
    break;  
 //------------------------------------------------ 
    case Run_spindletakeupMotor_Backward_at_current_Speed:
-      spindletakeupMotor->run(BACKWARD);
+      spindletakeupMotor_RUN(BACKWARD);
       spindletakeupMotorSpeed_OPEN_LOOP_RUN_FLAG = true;
    break;
 //------------------------------------------------ 
@@ -886,7 +958,7 @@ Display Functions
    case STOP_spindletakeupMotor:
       spindletakeupMotor_CLOSED_LOOP_SPEED_RUN_FLAG = false;
       spindletakeupMotor_PID.SetMode(MANUAL);                // Turn OFF the PID loopWake up with the PID OFF
-      spindletakeupMotor->run(RELEASE);                       // Turn off the motor
+      spindletakeupMotor_RUN(RELEASE);                       // Turn off the motor
       spindletakeupMotorSpeed_OPEN_LOOP_RUN_FLAG = false;
    break;
 //------------------------------------------------ 
@@ -896,7 +968,7 @@ Display Functions
 //     Serial.println("Enter speed (0-255)");
 //      delay(10);
       spindletakeupMotorSpeed  = COMMAND_PARAMETER;
-      spindletakeupMotor->setSpeed(spindletakeupMotorSpeed);
+      spindletakeupMotor_SET_SPEED(spindletakeupMotorSpeed);
     break;
 //------------------------------------------------ 
     case Run_pellonMotor1_forward_at_current_Speed:
@@ -957,11 +1029,11 @@ Display Functions
  //------------------------------------------------ 
     case Ramp_spindlesupplyMotor_0_255:
       Serial.println("RAMP");
-      spindlesupplyMotor->setSpeed(0);
-      spindlesupplyMotor->run(FORWARD);
+      spindlesupplyMotor_SET_SPEED(0);
+      spindlesupplyMotor_RUN(FORWARD);
       for (int i=0; i <= 255; i++)
       {
-       spindlesupplyMotor->setSpeed(i);
+       spindlesupplyMotor_SET_SPEED(i);
        delay(200);
       } 
     break;

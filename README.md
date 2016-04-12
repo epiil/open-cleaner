@@ -1,5 +1,7 @@
 #opencleaner: an (IN PROGRESS!!) open-source tape cleaning solution for magnetic media
 
+![alt text](https://github.com/epiil/open-cleaner/blob/master/photos/photos/Acrylic\ Enclosure/IMG_6705.jpg " ")
+
 ##Introduction
 
 This repo contains instructions for assembling, testing, and operating an open-reel magnetic video tape cleaner. When used in conjunction with other conservation treatments like incubation (baking), tape cleaning assists in minimizing the effects of tape degradation such as binder hydrolysis ("sticky shed syndrome") during the playback/reformatting process.  
@@ -20,4 +22,19 @@ Opencleaner consists of a dual-motor spindle drivetrain that moves the tape thro
 - /photos - contains photo gallery
 
 - /assembly - contains assembly instructions with photo documentation. 
+
+##Acknowledgements
+
+This project could not have been possible without the generous contributions from the following people and organizations:
+
+
+Tim Woolaver
+Mike Maxwell
+Maurice Schechter
+Video Data Bank - Tom Colley, Kristin McDonough
+Smithsonian NMAAHC - Walter Forsberg
+Signal Culture - Deborah Bernagozzi, Jason Bernagozzi, Hank Rudolph
+
+
+
 
