@@ -29,10 +29,15 @@ This project could not have been possible without the generous contributions fro
 
 
 Tim Woolaver
+
 Mike Maxwell
+
 Maurice Schechter
+
 Video Data Bank - Tom Colley, Kristin McDonough
+
 Smithsonian NMAAHC - Walter Forsberg
+
 Signal Culture - Deborah Bernagozzi, Jason Bernagozzi, Hank Rudolph
 
 
