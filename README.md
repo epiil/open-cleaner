@@ -1,6 +1,6 @@
 #opencleaner: an (IN PROGRESS!!) open-source tape cleaning solution for magnetic media
 
-![alt text](https://github.com/epiil/open-cleaner/blob/master/photos/photos/Acrylic\ Enclosure/IMG_6705.jpg " ")
+![alt text](https://github.com/epiil/open-cleaner/blob/master/photos/Acrylic\ Enclosure/IMG_6705.jpg " ")
 
 ##Introduction
 
