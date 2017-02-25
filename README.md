@@ -1,6 +1,6 @@
-#opencleaner: an open-source tape cleaner for magnetic media
+#opencleaner: an open-source videotape cleaning
 
-![alt text](https://github.com/epiil/open-cleaner/blob/master/photos/DSC06149.jpg" ")
+![alt text](https://github.com/epiil/open-cleaner/blob/master/photos/DSC06149.JPG" ")
 
 ##Introduction
 
