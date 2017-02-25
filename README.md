@@ -1,4 +1,4 @@
-#opencleaner: an open-source videotape cleaning
+#opencleaner: open-source videotape cleaning
 
 ![alt text](https://github.com/epiil/open-cleaner/blob/master/photos/DSC06149.JPG "Opencleaner")
 
