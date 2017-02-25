@@ -1,6 +1,6 @@
-#opencleaner: an open-source tape cleaning solution for magnetic media
+#opencleaner: an open-source tape cleaner for magnetic media
 
-![alt text](https://github.com/epiil/open-cleaner/blob/master/photos/DSC06149.jpg " ")
+![alt text](https://github.com/epiil/open-cleaner/blob/master/photos/DSC06149.jpg" ")
 
 ##Introduction
 
@@ -11,6 +11,7 @@ Controlled by an Arduino Uno microcontroller and integrated motor shield, the ma
 In-progress videos:
 
 [02/15/2017 - 24VDC Motor Test](https://vimeo.com/204296759)
+
 [02/23/2017 - PID Control Test](https://vimeo.com/205490774)
 
 ##Repository Contents:
