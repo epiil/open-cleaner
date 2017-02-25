@@ -1,6 +1,6 @@
 #opencleaner: an open-source videotape cleaning
 
-![alt text](https://github.com/epiil/open-cleaner/blob/master/photos/DSC06149.JPG" ")
+![alt text](https://github.com/epiil/open-cleaner/blob/master/photos/DSC06149.JPG "Opencleaner")
 
 ##Introduction
 
