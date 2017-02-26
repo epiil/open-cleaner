@@ -1,0 +1,44 @@
+Component,Quantity,Item,Vendor,Price Per Item,Line Total,Item link
+Rollers,6,Precision Rollers,tnsmachineworks.com,$55.00,$330.00,N/A
+Cleaning Station,4,Pellon Mounts,tnsmachineworks.com,$40.00,$160.00,N/A
+Reel Spindles,2,Spindle Mounts,tnsmachineworks.com,$40.00,$80.00,N/A
+Electronics,1,Arduino Uno Rev3 Microcontroller board,adafruit.com,$24.95,$24.95,https://www.adafruit.com/products/50
+Electronics,1,Adafruit Motor/Stepper/Servo Shield for Arduino v2 Kit (v2.3),adafruit.com,$19.95,$19.95,https://www.adafruit.com/products/1438
+Electronics,1,Adafruit Blue&White 16x2 LCD+Keypad Kit,adafruit.com,$19.95,$19.95,https://www.adafruit.com/products/1115
+Electronics,1,Cytron MDD10A DC Motor Driver,robotshop.com,$23.49,$23.49,http://www.robotshop.com/en/10a-5-30v-dual-channel-dc-motor-driver.html
+Electronics,4,Brass M2.5 Standoffs for Pi HATs - Black Plated - Pack of 2[ID:2336],adafruit.com,$3.00,$12.00,https://www.adafruit.com/products/2336
+Electronics,1,"2.54mm/0.1"" Pitch Terminal Block - 4-pin[ID:2137]",adafruit.com,$1.55,$1.55,https://www.adafruit.com/products/2137
+Electronics,3,"2.54mm/0.1"" Pitch Terminal Block - 3-pin[ID:2136]",adafruit.com,$3.75,$11.25,https://www.adafruit.com/product/2
+Electronics,1,Hook-up Wire Spool Set - 22AWG Solid Core - 6 x 25 ft,adafruit.com,$15.95,$15.95,https://www.adafruit.com/products/1311
+Electronics,2,USB Cable - Standard A-B - 3 ft/1m,adafruit.com,$3.95,$7.90,https://www.adafruit.com/products/62
+Motors,2,24V/30.3V DC Motors with optical encoders,ebay.com ,$50.00,$100.00,N/A
+Electronics,1,Green LED Rocker Switch Fuse Holder IEC320 C14 Inlet Power Socket AC250V 10A,ebay.com ,$1.72,$1.72,http://www.ebay.com/itm/1x-Green-LED-Rocker-Switch-Fuse-Holder-IEC320-C14-Inlet-Power-Socket-AC250V-10A-/291186777350?hash=item43cc159d06:g:qc4AAOSwirZTvZOQ
+Electronics,1,AC 110-220V TO DC 12V/24V Regulated Transformer Power Supply,ebay.com ,$20.00,$20.00,N/A
+Electronics,1,"Zinc Plated Steel Hex Nut, Class 8, M2x0.4 Thread Size, 4mm Wide, 1.6mm High, 100 pack",mcmaster.com,$2.08,$2.08,http://www.mcmaster.com/#steel-hex-nuts/=114isxv
+Electronics,1,"Type 316 Stainless Steel Flat Washer, M2 Screw Size, 2.2mm ID, 5.0mm OD",mcmaster.com,$2.37,$2.37,http://www.mcmaster.com/#standard-flat-washers/=114iudk
+Cleaning Station,1,"Nylon Unthreaded Spacer, 5/8"" OD, 1-1/2"" Length, 1/4"" Screw Size 10 pack",mcmaster.com,$8.10,$8.10,http://www.mcmaster.com/#nylon-spacers/=114j793
+Electronics,1,"Black-Oxide Class 12.9 Socket Head Cap Screw, Alloy Steel, M2 Thread, 20 mm Long, 0.4 mm Pitch 100 Pack",mcmaster.com,$11.16,$11.16,http://www.mcmaster.com/#socket-head-cap-screws/=114j98y
+Cleaning Station,1,"18-8 Stainless Steel Pan Head Phillips Machine Screw, 1/4""-20 Thread, 2-1/2"" Length",mcmaster.com,$13.21,$13.21,http://www.mcmaster.com/#machine-screws/=114jb3h
+Cleaning Station,1,"Cadmium Chromate Plated Steel Mil. Spec. Hex Nut, Grade 5, 5/8""-11 Thread Size, 15/16"" Wide, MS-51967-20",mcmaster.com,$7.17,$7.17,http://www.mcmaster.com/#ms-51967-20-hex-nuts/=114jbhf
+Enclosure,2,"Optically Clear Cast Acrylic Sheet, 1/4"" Thick, 12"" x 24""",mcmaster.com,$28.08,$56.16,http://www.mcmaster.com/#catalog/122/3624/=114hp2r
+Enclosure,3,"Optically Clear Cast Acrylic Rectangular Bar, 1/4"" Thick, 4"" Width, Clear",mcmaster.com,$3.67,$11.01,http://www.mcmaster.com/#catalog/122/3625/=114hpku
+Enclosure,6,"Electrical-Insulating Female Threaded Standoff, Glazed Grade L5 Ceramic, 3/4"" OD, 4"" Length",mcmaster.com,$10.04,$60.24,http://www.mcmaster.com/#catalog/122/3292/=114hq6f
+Enclosure,2,"Leveling Mount, Cushion Rest, 1/4""-20 x 7/8"" Thread Length, 1-1/4"" Base",mcmaster.com,$5.22,$10.44,http://www.mcmaster.com/#catalog/122/1416/=114hqkz
+Enclosure,6,"Mil. Spec. Flat-Head Socket Cap Screw, 300 Series Stainless Steel, 1/4""-20 Thread, 3/4"" Long, MS24671",mcmaster.com,$4.75,$28.50,http://www.mcmaster.com/#catalog/122/3127/=114hqy4
+Cleaning Station,4,"Idler Shaft, 1/2"" OD, 1-1/16"" Overall Length, Thread Mount",mcmaster.com,$7.53,$30.12,http://www.mcmaster.com/#catalog/122/1123/=114ht8p
+Tension Arm,1,"Precision Stainless Steel Extension Spring, 1.0"" Length, .250"" OD, .026"" Wire Diameter",mcmaster.com,$4.29,$4.29,http://www.mcmaster.com/#catalog/122/1265/=114htt8
+Tension Arm,1,"Steel Extension Spring Anchor Stud, Standard, 1/4""-20 Thread, 1-1/4"" Overall Length",mcmaster.com,$3.22,$3.22,http://www.mcmaster.com/#catalog/122/1264/=114hua6
+Rollers,1,"18-8 Stainless Steel Button-Head Socket Cap Screw, 4-40 Thread, 1"" Length",mcmaster.com,$4.54,$4.54,http://www.mcmaster.com/#catalog/122/3128/=114hutl
+Rollers,6,"Black-Finish Aluminum Unthreaded Spacer, 1/2"" OD, 1/4"" Length, #1/4 Screw Size",mcmaster.com,$2.69,$16.14,http://www.mcmaster.com/#catalog/122/3283/=114hva5
+Cleaning Station,1,"Low-Strength Steel Extra-Wide Thin Hex Nut, Black Oxide, 1/4""-20 Thread Size, 1/2"" Wide, 11/64"" High",mcmaster.com,$6.05,$6.05,http://www.mcmaster.com/#catalog/122/3209/=114hwkl
+Cleaning Station,1,"Black-Oxide 18-8 Stainless Steel Flat Washer, Oversized, 1/4"" Screw Size, 0.266"" ID, 1.500"" OD",mcmaster.com,$7.30,$7.30,http://www.mcmaster.com/#catalog/122/3239/=114hx86
+Rollers,8,"303 Stainless Steel Shaft with Retaining Ring Grooves, 1/4"" OD, 3"" Overall Length",mcmaster.com,$4.52,$36.16,http://www.mcmaster.com/#catalog/122/3298/=114hz0p
+Rollers,1,"Stainless Steel External Retaining Ring, for 1/4"" Shaft Diameter, packs of 10",mcmaster.com,$8.50,$8.50,http://www.mcmaster.com/#catalog/122/3298/=114hzwu
+Rollers,8,"Steel Ball Bearing--ABEC-1, Double Shielded, No. R4A for 1/4"" Shaft Diameter, 3/4"" OD",mcmaster.com,$6.90,$55.20,http://www.mcmaster.com/#catalog/122/1187/=114hypo
+Rollers,1,"Type 316 Stainless Steel Button-Head Socket Cap Screw, 4-40 Thread, 1/2"" Length, packs of 50",mcmaster.com,$2.98,$2.98,http://www.mcmaster.com/#catalog/122/1122/=114hy3p
+Cleaning Station,2,Standard Gearmotor - 1 RPM (3-12V),sparkfun.com,$24.95,$49.90,https://www.sparkfun.com/products/12219
+Rollers,1,"Pololu Universal Aluminum Mounting Hub for 1/4″ Shaft, #4-40 Holes (2-Pack)",pololu.com,$7.95,$7.95,https://www.pololu.com/product/1993
+Tension Arm,1,Bourns Inc. EM14A0D-C24-L064N ENCODER OPT ROTARY 64PPR WO/SW,digikey.com,$29.18,$29.18,http://www.digikey.com/product-detail/en/EM14A0D-C24-L064N/EM14A0D-C24-L064N-ND/2537991
+Electronics,1,Switchcraft EHUSBBAX USB-B to USB-A Panel Mount Connector,markertek.com,$6.24,$6.24,http://www.markertek.com/product/ehusbba/switchcraft-ehusbbax-usb-b-to-usb-a-panel-mount-connector-silver
+,,,,,,
+,,,,,,
