@@ -1,6 +1,6 @@
 /* 
-Opencleaner v.0.9.1
-5 Mar 2017
+Opencleaner v.0.9.3
+5 August 2017
 https://github.com/epiil/open-cleaner
 */
 // ============================================================================================
@@ -33,18 +33,21 @@ int pellonMotorSpeed = 100; // Initial pellon motor speed (100/255)
 //        CYTRON MDD10A DC MOTOR DRIVER - for SPINDLE MOTORS
 //=============================================================================================
 
-#define spindlesupplyMotor_DIR1 8   // Assigns DIR1 on MDD10A to Digital Pin 8
-#define spindlesupplyMotor_PWM1 9   // Assigns PWM1 on MDD10A to Digital Pin 9  (PWM pin)
-#define spindletakeupMotor_PWM2 10  // Assigns PWM2 on MDD10A to Digital Pin 10 (PWM pin)
-#define spindletakeupMotor_DIR2 11  // Assigns DIR2 on MDD10A to Digital Pin 11
+const int takeupinterruptPin = 2;
+
+#define spindlesupplyMotor_DIR1 8   // Assigns DIR1 on MDD10A to Digital Pin 8    11
+#define spindlesupplyMotor_PWM1 9   // Assigns PWM1 on MDD10A to Digital Pin 9  (PWM pin) 10
+#define spindletakeupMotor_PWM2 10  // Assigns PWM2 on MDD10A to Digital Pin 10 (PWM pin) 9
+#define spindletakeupMotor_DIR2 11  // Assigns DIR2 on MDD10A to Digital Pin 11 8
 
 // Variables
 
-int supplyMotorSpeed = 100; // Initial supply spindle motor speed (100/255)
-int spindlesupplyMotor_PWM = 100; // PWM value for supply spindle motor
+int supplyMotorSpeed = 10; // Initial supply spindle motor speed (100/255)
+int spindlesupplyMotor_PWM = 10; // PWM value for supply spindle motor
 
-int takeupMotorSpeed = 100; // Initial takeup spindle motor speed (100/255)
-int spindletakeupMotor_PWM = 100; // PWM value for takeup spindle motor
+int takeupMotorSpeed = 10; // Initial takeup spindle motor speed (100/255)
+int spindletakeupMotor_PWM = 10; // PWM value for takeup spindle motor
+//takeupMotorSpeed = constrain(takeupMotorSpeed, 0, 255); //limits takeupMotorSpeed value 0-255
 
 int spindlesupplyMotor_DIR = 0;
 int spindletakeupMotor_DIR = 0; 
@@ -60,18 +63,25 @@ int spindlesupplyMotorSpeed = 0;
 //        PITTMAN E30 INCREMENTAL OPTICAL ENCODERS - 512 counts per resolution (CPR)
 //=============================================================================================
 
-#define spindlesupplyOpticalEncoderPinA 2 // Assigns Supply Spindle Motor Optical Encoder Channel A to Arduino Digital Pin 2
-#define spindlesupplyOpticalEncoderIsReversed
+#define spindletakeupOpticalEncoderPinB 2 // Assigns Supply Spindle Motor Optical Encoder Channel A to Arduino Digital Pin 2
+#define spindletakeupOpticalEncoderIsReversed
 
 // Variables
 
 volatile bool spindlesupplyOpticalEncoderASet;
 volatile long spindlesupplyOpticalEncoderCount = 0;
 
+volatile bool spindletakeupOpticalEncoderBSet;
+volatile long spindletakeupOpticalEncoderCount = 0;
+
 unsigned int spindlesupplymotorSpeedRPM=0;                      //    Calculated motor speed from encoder value.
+unsigned int spindletakeupmotorSpeedRPM=0;
+
 SimpleTimer timer;                                             //     Timer object for polling counter value every 1 sec.
+
 const long updateInterval=1000L;                              //      Timer update value (1000 ms)
 const float pulsesPerRevolution=256*2.0;                     //       Pulses per revolution (512 CPR)
+
 
 // ============================================================================================
 //        OPTEK OPB819Z SLOTTED OPTICAL SWITCH for TAPESENSORREAD 
@@ -108,7 +118,7 @@ long lastLogTime = 0;
 //        OPERATING STATES
 //=============================================================================================
 
-enum operatingState { OPER = 0, LOAD, RUNF, RUNB, CLOSEDLOOP, PELRUN, MENUSUPPLYSPEED, MENUTAKEUPSPEED, TUNE_P, TUNE_I, TUNE_D, OPTOREAD, TENSIONREAD, TAPESENSORREAD};
+enum operatingState { OPER = 0, RUNF, CLOSEDLOOP, PELRUN, MENUSUPPLYSPEED, MENUTAKEUPSPEED, TUNE_P, TUNE_I, TUNE_D, OPTOREAD, TENSIONREAD, TAPESENSORREAD};
 operatingState opState = OPER;
 
 boolean TAPE_SPEED_OPTO_STATE = false;
@@ -132,10 +142,22 @@ PID myPID(&Input, &Output, &Setpoint, spindlesupplyMotor_PID_Kp, spindlesupplyMo
 //        FUNCTION: UPDATE SPEED EVENT
 //=============================================================================================
 
-void updateSpeedEvent()
+/*void updatesupplySpeedEvent()
 {
   spindlesupplymotorSpeedRPM=((spindlesupplyOpticalEncoderCount/(updateInterval/1000.0))*60.0)/pulsesPerRevolution; //RPM speed
   spindlesupplyOpticalEncoderCount=0; //reset counter;
+  
+} // =========== End updateSpeedEvent Function =============*/
+
+// ============================================================================================
+//        FUNCTION: UPDATE TAKEUP SPEED EVENT
+//=============================================================================================
+
+void updateSpeedEvent()
+{
+  spindletakeupmotorSpeedRPM=((spindletakeupOpticalEncoderCount/(updateInterval/1000.0))*60.0)/pulsesPerRevolution; //RPM speed
+  spindletakeupOpticalEncoderCount=0; //reset counter;
+  
 } // =========== End updateSpeedEvent Function =============
 
 // ============================================================================================
@@ -228,11 +250,17 @@ void setup() {
   
   Serial.begin (9600); // Begin serial 
 
-  pinMode(spindlesupplyOpticalEncoderPinA, INPUT);                    // sets pin A as input
-  digitalWrite(spindlesupplyOpticalEncoderPinA, LOW);                 // turn on pullup resistors
-  attachInterrupt(0, spindlesupplyOpticalEncoderInterruptA, RISING);
-  timer.setInterval(updateInterval, updateSpeedEvent);                // Interrupt for accurate counting of encoder pulses
+  pinMode(spindletakeupOpticalEncoderPinB, INPUT);                    // sets pin A as input
+  digitalWrite(spindletakeupOpticalEncoderPinB, LOW);                 // turn on pullup resistors
+  attachInterrupt(digitalPinToInterrupt(takeupinterruptPin), spindletakeupOpticalEncoderInterruptB, RISING);
 
+  /*pinMode(spindlesupplyOpticalEncoderPinA, INPUT);                    // sets pin A as input
+  digitalWrite(spindlesupplyOpticalEncoderPinA, LOW);                 // turn on pullup resistors
+  attachInterrupt(digitalPinToInterrupt(supplyinterruptPin), spindlesupplyOpticalEncoderInterruptA, RISING);*/
+  
+  timer.setInterval(updateInterval, updateSpeedEvent);                // Interrupt for accurate counting of encoder pulses
+  //timer.setInterval(updateInterval, updatesupplySpeedEvent);               
+  
    lcd.begin(16, 2);
    lcd.print(F("Opencleaner v0.9")); // Opening Display with version control
    delay(900);
@@ -257,7 +285,7 @@ void setup() {
 
 // PID
 
-   Input = spindlesupplymotorSpeedRPM;
+   Input = spindletakeupmotorSpeedRPM;
    Setpoint = 50; // 170/255=39% power / rpm for dc motor
    myPID.SetMode(AUTOMATIC);
    myPID.SetOutputLimits(20, (int) 220);
@@ -289,14 +317,8 @@ void loop() {
     case OPER:
     Oper();
     break;
-    case LOAD: // Menu: Load tape
-    Load();
-    break;
     case RUNF: // Menu: Run tape forward
     RunF();
-    break;
-    case RUNB:// Menu: Run tape backward
-    RunB();
     break;
     case CLOSEDLOOP: // Menu: Run Closed Loop
     ClosedLoop();
@@ -352,7 +374,7 @@ uint8_t ReadButtons()
 // ===============================================
 void Oper()
 {
-  lcd.print(F("  Operations:"));
+  lcd.print(F("1.Operations:"));
   lcd.setCursor(0, 1);
   lcd.print(F("< Back    Menu >"));
   uint8_t buttons = 0;
@@ -369,129 +391,21 @@ void Oper()
       }
       if (buttons & BUTTON_RIGHT)
       {
-         opState = LOAD;
+         opState = RUNF;
          return;
       }
   }
 } // =========== End Oper Function =============
 
 // ===============================================
-// LOAD Menu - Loads Tape
-// SHIFT and RIGHT for autotune
-// RIGHT - LOAD
-// LEFT - OPER
-// ===============================================
-
-void Load()
-{
-  lcd.print(F("  Load Tape:"));
-  lcd.setCursor(0, 1);
-  lcd.print(F("Press UP to Load"));
-  uint8_t buttons = 0;
-  while(true)
-  {
-      buttons = ReadButtons();
-      if (buttons & BUTTON_SHIFT)
-      {
-        spindlesupplyMotor_RUN(BRAKE);
-        spindletakeupMotor_RUN(BRAKE);
-        pellonMotor1->run(RELEASE); // Turns pellon 1 motor off
-        pellonMotor2->run(RELEASE); // Turns pellon 2 motor off
-      }
-      if (buttons & BUTTON_LEFT)
-      {
-         opState = OPER;
-         return;
-      }
-      if (buttons & BUTTON_RIGHT)
-      {
-         opState = RUNF;
-         return;
-      }
-            if (buttons & BUTTON_UP)
-      { 
-        analogWrite(spindlesupplyMotor_PWM1, 40);
-        analogWrite(spindletakeupMotor_PWM2, 40);
-      }
-  }
-} // =========== End Load Function =============
-
-// ===============================================
-// Run Tape in Forward (Supply to Takeup) aka RUNF
-// RIGHT button: for RUNB
-// LEFT button: for LOAD
-// SHIFT button: Run Tape in Forward Mode
+// Run Forward
+// RIGHT button: for PELRUN
+// LEFT button: for OPER
+// SHIFT button: 
 // ===============================================
 void RunF()
 {
-  lcd.print(F("1.Clean Forward"));
-  lcd.setCursor(0,1);
-  lcd.print(F("RPM:"));
-  uint8_t buttons = 0;
-  while(true)
-  {
-      buttons = ReadButtons();
-      
-      if (buttons & BUTTON_SHIFT)
-      {
-        spindlesupplyMotor_RUN(BRAKE);
-        spindletakeupMotor_RUN(BRAKE);
-        pellonMotor1->run(RELEASE);
-        pellonMotor2->run(RELEASE);
-        lcd.setCursor(13,1);
-        lcd.print(F("STP"));
-      }
-      if (buttons & BUTTON_LEFT)
-      {
-         opState = LOAD;
-         return;
-      }
-      if (buttons & BUTTON_RIGHT)
-      {
-         opState = RUNB;
-         return;
-      }
-      if (buttons & BUTTON_UP)
-      { 
-        spindletakeupMotor_SET_SPEED(takeupMotorSpeed);
-        spindletakeupMotor_RUN(FORWARD);
-        pellonMotor1->run(FORWARD);
-        pellonMotor2->run(FORWARD);
-        lcd.setCursor(13,1);
-        lcd.print(F("FWD"));
-      }
-      if (buttons & BUTTON_DOWN)
-      {
-      }
-      if  (digitalRead(optotapeSensor) == 0)  //Opto switch beam is seen
-      {
-        spindlesupplyMotor_RUN(BRAKE);
-        spindletakeupMotor_RUN(BRAKE);
-        pellonMotor1->run(RELEASE);
-        pellonMotor2->run(RELEASE);
-      }
-      else
-      {
-      }
-      timer.run(); // Initiates SimpleTimer
-      Serial.print("supply motor speed (RPM) = ");
-      Serial.print(spindlesupplymotorSpeedRPM);
-      Serial.print("\n");
-      lcd.setCursor(5,1);
-      lcd.print(spindlesupplymotorSpeedRPM);
-      delay(20);
-  }
-} // =========== End RunF Function =============
-
-// ===============================================
-// Run Tape in Reverse aka RUNB
-// RIGHT button: for PELRUN
-// LEFT button: for RUNF
-// SHIFT button: - Run Tape in Reverse
-// ===============================================
-void RunB()
-{
-  lcd.print(F("2.Clean(Reverse)"));
+  lcd.print(F("2.Clean Forward"));
   lcd.setCursor(0,1);
   lcd.print(F("UP to RUN"));
   uint8_t buttons = 0;
@@ -510,7 +424,7 @@ void RunB()
       }
       if (buttons & BUTTON_LEFT)
       {
-         opState = RUNF;
+         opState = OPER;
          return;
       }
       if (buttons & BUTTON_RIGHT)
@@ -573,17 +487,17 @@ void ClosedLoop()
       }
       readtapetension();
       reversetensionClosedLoop();
-      analogWrite(spindletakeupMotor_PWM2, 10);
+      analogWrite(spindlesupplyMotor_PWM1, 10);
       timer.run(); // Initiates SimpleTimer
       Serial.print("supply motor speed (RPM) = ");
-      Serial.print(spindlesupplymotorSpeedRPM);
+      Serial.print(spindletakeupmotorSpeedRPM);
       Serial.print(" Output = ");
       Serial.print(Output);   
       Serial.print(" Tape Tension = ");
       Serial.print(tensionencoder0Pos);   
       Serial.print("\n");
       lcd.setCursor(5,1);
-      lcd.print(spindlesupplymotorSpeedRPM);
+      lcd.print(spindletakeupmotorSpeedRPM);
       lcd.print("    ");
       if  (digitalRead(optotapeSensor) == 0)  //Opto switch beam is seen
       {
@@ -628,7 +542,7 @@ void PelRun()
       }
       if (buttons & BUTTON_LEFT)
       {
-         opState = RUNB;
+         opState = RUNF;
          return;
       }
       if (buttons & BUTTON_RIGHT)
@@ -711,6 +625,7 @@ void MenuSupplySpeed()
       if (buttons & BUTTON_UP)
       {
         supplyMotorSpeed += increment;
+        supplyMotorSpeed = constrain(supplyMotorSpeed, 0, 255); //clamps values 0-255
         delay(200);
         analogWrite(spindlesupplyMotor_PWM1, supplyMotorSpeed);
         lcd.setCursor(9,0);
@@ -723,6 +638,7 @@ void MenuSupplySpeed()
       if (buttons & BUTTON_DOWN)
       {
         supplyMotorSpeed -= increment;
+        supplyMotorSpeed = constrain(supplyMotorSpeed, 0, 255); //clamps values 0-255
         delay(200);
         analogWrite(spindlesupplyMotor_PWM1, supplyMotorSpeed);
         lcd.setCursor(9,0);
@@ -762,8 +678,6 @@ void MenuSupplySpeed()
 void MenuTakeUpSpeed()
 {
   lcd.print(F("5.Takeup"));
-  lcd.setCursor(0,1);
-  lcd.print(F("Spd:"));
   lcd.setCursor(12,0);
   lcd.print(F("/255"));
   lcd.setCursor(0,1);
@@ -771,9 +685,9 @@ void MenuTakeUpSpeed()
   lcd.setCursor(8,1);
   lcd.print(F("RPM:"));
   lcd.setCursor(9,0);
-  lcd.print(supplyMotorSpeed);
+  lcd.print(takeupMotorSpeed);
   lcd.setCursor(12,1);
-  lcd.print(spindlesupplymotorSpeedRPM);
+  lcd.print(spindletakeupmotorSpeedRPM);
   uint8_t buttons = 0;
   while(true)
   {
@@ -782,10 +696,10 @@ void MenuTakeUpSpeed()
       float increment = 5.0;
       if (buttons & BUTTON_SHIFT)
       {
-        lcd.setCursor(4,1);
-        lcd.print(F("STP"));
         spindlesupplyMotor_RUN(BRAKE);
         spindletakeupMotor_RUN(BRAKE);
+        lcd.setCursor(4,1);
+        lcd.print(F("STP"));
       }
       if (buttons & BUTTON_LEFT)
       {
@@ -800,6 +714,7 @@ void MenuTakeUpSpeed()
       if (buttons & BUTTON_UP)
       {
         takeupMotorSpeed += increment;
+        takeupMotorSpeed = constrain(takeupMotorSpeed, 0, 255); //clamps values 0-255
         delay(200);
         analogWrite(spindletakeupMotor_PWM2, takeupMotorSpeed);
         lcd.setCursor(9,0);
@@ -812,6 +727,7 @@ void MenuTakeUpSpeed()
       if (buttons & BUTTON_DOWN)
       {
         takeupMotorSpeed -= increment;
+        takeupMotorSpeed = constrain(takeupMotorSpeed, 0, 255); //clamps values 0-255
         delay(200);
         analogWrite(spindletakeupMotor_PWM2, takeupMotorSpeed);
         lcd.setCursor(9,0);
@@ -831,6 +747,13 @@ void MenuTakeUpSpeed()
       else
       {
       }
+      timer.run(); // Initiates SimpleTimer
+      Serial.print("supply motor speed (RPM) = ");
+      Serial.print(spindletakeupmotorSpeedRPM);
+      Serial.print("\n");
+      lcd.setCursor(12,1);
+      lcd.print(spindletakeupmotorSpeedRPM);
+      lcd.print("    ");
   }
 } // =========== End MenuTakeUpSpeed Function =============
 
@@ -1134,7 +1057,7 @@ void readtapetension() {
 } // =========== End readtapetension Function =============
 
 // ==============================================
-//        FUNCTION - SUPPLY OPTICAL ENCODER INTERRUPT 1
+//        FUNCTION - SUPPLY OPTICAL ENCODER INTERRUPT A
 //===============================================
 
 void spindlesupplyOpticalEncoderInterruptA()
@@ -1143,18 +1066,23 @@ void spindlesupplyOpticalEncoderInterruptA()
 } // =========== End spindlesupplyOpticalEncoderInterruptA Function =============
 
 // ==============================================
+//        FUNCTION - TAKEUP OPTICAL ENCODER INTERRUPT B
+//===============================================
+
+void spindletakeupOpticalEncoderInterruptB()
+{
+  spindletakeupOpticalEncoderCount += spindletakeupOpticalEncoderBSet ? -1 : +1;
+} // =========== End spindlesupplyOpticalEncoderInterruptA Function =============
+
+// ==============================================
 //        FUNCTION - RUN CLOSED LOOP (SUPPLY)
 //===============================================
 
 void runClosedLoop() {
-  Input=map(spindlesupplymotorSpeedRPM,0,4000,0,255); // Change 1500 to your max. rpm
+  Input=map(spindletakeupmotorSpeedRPM,0,4000,0,255); // Change 1500 to your max. rpm
   myPID.Compute();
-  analogWrite(spindlesupplyMotor_PWM1, Output);
+  analogWrite(spindletakeupMotor_PWM2, Output);
 } // =========== End runClosedLoop Function =============
-
-
-
-
 
 void reversetensionClosedLoop() {
   readtapetension();

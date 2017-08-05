@@ -1,6 +1,6 @@
 /* 
-Opencleaner v.0.9.1
-5 Mar 2017
+Opencleaner v.0.9.2
+8 April 2017
 https://github.com/epiil/open-cleaner
 */
 // ============================================================================================
@@ -33,6 +33,9 @@ int pellonMotorSpeed = 100; // Initial pellon motor speed (100/255)
 //        CYTRON MDD10A DC MOTOR DRIVER - for SPINDLE MOTORS
 //=============================================================================================
 
+const int supplyinterruptPin = 2;
+const int takeupinterruptPin = 3;
+
 #define spindlesupplyMotor_DIR1 8   // Assigns DIR1 on MDD10A to Digital Pin 8
 #define spindlesupplyMotor_PWM1 9   // Assigns PWM1 on MDD10A to Digital Pin 9  (PWM pin)
 #define spindletakeupMotor_PWM2 10  // Assigns PWM2 on MDD10A to Digital Pin 10 (PWM pin)
@@ -40,11 +43,11 @@ int pellonMotorSpeed = 100; // Initial pellon motor speed (100/255)
 
 // Variables
 
-int supplyMotorSpeed = 100; // Initial supply spindle motor speed (100/255)
-int spindlesupplyMotor_PWM = 100; // PWM value for supply spindle motor
+int supplyMotorSpeed = 10; // Initial supply spindle motor speed (100/255)
+int spindlesupplyMotor_PWM = 10; // PWM value for supply spindle motor
 
-int takeupMotorSpeed = 100; // Initial takeup spindle motor speed (100/255)
-int spindletakeupMotor_PWM = 100; // PWM value for takeup spindle motor
+int takeupMotorSpeed = 10; // Initial takeup spindle motor speed (100/255)
+int spindletakeupMotor_PWM = 10; // PWM value for takeup spindle motor
 
 int spindlesupplyMotor_DIR = 0;
 int spindletakeupMotor_DIR = 0; 
@@ -63,15 +66,25 @@ int spindlesupplyMotorSpeed = 0;
 #define spindlesupplyOpticalEncoderPinA 2 // Assigns Supply Spindle Motor Optical Encoder Channel A to Arduino Digital Pin 2
 #define spindlesupplyOpticalEncoderIsReversed
 
+#define spindletakeupOpticalEncoderPinA 3 // Assigns Supply Spindle Motor Optical Encoder Channel A to Arduino Digital Pin 2
+#define spindletakeupOpticalEncoderIsReversed
+
 // Variables
 
 volatile bool spindlesupplyOpticalEncoderASet;
 volatile long spindlesupplyOpticalEncoderCount = 0;
 
+volatile bool spindletakeupOpticalEncoderBSet;
+volatile long spindletakeupOpticalEncoderCount = 0;
+
 unsigned int spindlesupplymotorSpeedRPM=0;                      //    Calculated motor speed from encoder value.
+unsigned int spindletakeupmotorSpeedRPM=0;
+
 SimpleTimer timer;                                             //     Timer object for polling counter value every 1 sec.
+
 const long updateInterval=1000L;                              //      Timer update value (1000 ms)
 const float pulsesPerRevolution=256*2.0;                     //       Pulses per revolution (512 CPR)
+
 
 // ============================================================================================
 //        OPTEK OPB819Z SLOTTED OPTICAL SWITCH for TAPESENSORREAD 
@@ -108,7 +121,7 @@ long lastLogTime = 0;
 //        OPERATING STATES
 //=============================================================================================
 
-enum operatingState { OPER = 0, LOAD, RUNF, RUNB, CLOSEDLOOP, PELRUN, MENUSUPPLYSPEED, MENUTAKEUPSPEED, TUNE_P, TUNE_I, TUNE_D, OPTOREAD, TENSIONREAD, TAPESENSORREAD};
+enum operatingState { OPER = 0, RUNF, RUNB, CLOSEDLOOP, PELRUN, MENUSUPPLYSPEED, MENUTAKEUPSPEED, TUNE_P, TUNE_I, TUNE_D, OPTOREAD, TENSIONREAD, TAPESENSORREAD};
 operatingState opState = OPER;
 
 boolean TAPE_SPEED_OPTO_STATE = false;
@@ -136,6 +149,18 @@ void updateSpeedEvent()
 {
   spindlesupplymotorSpeedRPM=((spindlesupplyOpticalEncoderCount/(updateInterval/1000.0))*60.0)/pulsesPerRevolution; //RPM speed
   spindlesupplyOpticalEncoderCount=0; //reset counter;
+  
+} // =========== End updateSpeedEvent Function =============
+
+// ============================================================================================
+//        FUNCTION: UPDATE TAKEUP SPEED EVENT
+//=============================================================================================
+
+void updatetakeupSpeedEvent()
+{
+  spindletakeupmotorSpeedRPM=((spindletakeupOpticalEncoderCount/(updateInterval/1000.0))*60.0)/pulsesPerRevolution; //RPM speed
+  spindletakeupOpticalEncoderCount=0; //reset counter;
+  
 } // =========== End updateSpeedEvent Function =============
 
 // ============================================================================================
@@ -230,9 +255,12 @@ void setup() {
 
   pinMode(spindlesupplyOpticalEncoderPinA, INPUT);                    // sets pin A as input
   digitalWrite(spindlesupplyOpticalEncoderPinA, LOW);                 // turn on pullup resistors
-  attachInterrupt(0, spindlesupplyOpticalEncoderInterruptA, RISING);
+  attachInterrupt(digitalPinToInterrupt(supplyinterruptPin), spindlesupplyOpticalEncoderInterruptA, RISING);
+  attachInterrupt(digitalPinToInterrupt(takeupinterruptPin), spindletakeupOpticalEncoderInterruptB, RISING);
+  
   timer.setInterval(updateInterval, updateSpeedEvent);                // Interrupt for accurate counting of encoder pulses
-
+  timer.setInterval(updateInterval, updatetakeupSpeedEvent);               
+  
    lcd.begin(16, 2);
    lcd.print(F("Opencleaner v0.9")); // Opening Display with version control
    delay(900);
@@ -288,9 +316,6 @@ void loop() {
   switch (opState) {
     case OPER:
     Oper();
-    break;
-    case LOAD: // Menu: Load tape
-    Load();
     break;
     case RUNF: // Menu: Run tape forward
     RunF();
@@ -369,52 +394,11 @@ void Oper()
       }
       if (buttons & BUTTON_RIGHT)
       {
-         opState = LOAD;
+         opState = RUNF;
          return;
       }
   }
 } // =========== End Oper Function =============
-
-// ===============================================
-// LOAD Menu - Loads Tape
-// SHIFT and RIGHT for autotune
-// RIGHT - LOAD
-// LEFT - OPER
-// ===============================================
-
-void Load()
-{
-  lcd.print(F("  Load Tape:"));
-  lcd.setCursor(0, 1);
-  lcd.print(F("Press UP to Load"));
-  uint8_t buttons = 0;
-  while(true)
-  {
-      buttons = ReadButtons();
-      if (buttons & BUTTON_SHIFT)
-      {
-        spindlesupplyMotor_RUN(BRAKE);
-        spindletakeupMotor_RUN(BRAKE);
-        pellonMotor1->run(RELEASE); // Turns pellon 1 motor off
-        pellonMotor2->run(RELEASE); // Turns pellon 2 motor off
-      }
-      if (buttons & BUTTON_LEFT)
-      {
-         opState = OPER;
-         return;
-      }
-      if (buttons & BUTTON_RIGHT)
-      {
-         opState = RUNF;
-         return;
-      }
-            if (buttons & BUTTON_UP)
-      { 
-        analogWrite(spindlesupplyMotor_PWM1, 40);
-        analogWrite(spindletakeupMotor_PWM2, 40);
-      }
-  }
-} // =========== End Load Function =============
 
 // ===============================================
 // Run Tape in Forward (Supply to Takeup) aka RUNF
@@ -443,7 +427,7 @@ void RunF()
       }
       if (buttons & BUTTON_LEFT)
       {
-         opState = LOAD;
+         opState = OPER;
          return;
       }
       if (buttons & BUTTON_RIGHT)
@@ -773,7 +757,7 @@ void MenuTakeUpSpeed()
   lcd.setCursor(9,0);
   lcd.print(supplyMotorSpeed);
   lcd.setCursor(12,1);
-  lcd.print(spindlesupplymotorSpeedRPM);
+  lcd.print(spindletakeupmotorSpeedRPM);
   uint8_t buttons = 0;
   while(true)
   {
@@ -831,6 +815,13 @@ void MenuTakeUpSpeed()
       else
       {
       }
+      timer.run(); // Initiates SimpleTimer
+      Serial.print("supply motor speed (RPM) = ");
+      Serial.print(spindletakeupmotorSpeedRPM);
+      Serial.print("\n");
+      lcd.setCursor(12,1);
+      lcd.print(spindletakeupmotorSpeedRPM);
+      lcd.print("    ");
   }
 } // =========== End MenuTakeUpSpeed Function =============
 
@@ -1134,12 +1125,21 @@ void readtapetension() {
 } // =========== End readtapetension Function =============
 
 // ==============================================
-//        FUNCTION - SUPPLY OPTICAL ENCODER INTERRUPT 1
+//        FUNCTION - SUPPLY OPTICAL ENCODER INTERRUPT A
 //===============================================
 
 void spindlesupplyOpticalEncoderInterruptA()
 {
   spindlesupplyOpticalEncoderCount += spindlesupplyOpticalEncoderASet ? -1 : +1;
+} // =========== End spindlesupplyOpticalEncoderInterruptA Function =============
+
+// ==============================================
+//        FUNCTION - TAKEUP OPTICAL ENCODER INTERRUPT 1
+//===============================================
+
+void spindletakeupOpticalEncoderInterruptB()
+{
+  spindletakeupOpticalEncoderCount += spindletakeupOpticalEncoderBSet ? -1 : +1;
 } // =========== End spindlesupplyOpticalEncoderInterruptA Function =============
 
 // ==============================================
