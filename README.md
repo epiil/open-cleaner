@@ -1,8 +1,8 @@
-#opencleaner: open-source videotape cleaning
+# opencleaner: open-source videotape cleaning
 
 ![alt text](https://github.com/epiil/open-cleaner/blob/master/photos/DSC06149.JPG "Opencleaner")
 
-##Introduction
+## Introduction
 
 This repo contains instructions for assembling, testing, and operating an open-reel 1/2" magnetic videotape cleaner. When used in conjunction with other remediation treatments like incubation, tape cleaning assists in minimizing the effects of tape degradation such as binder hydrolysis ("sticky shed syndrome") during the playback/reformatting process.  
 
@@ -24,7 +24,7 @@ In-progress videos:
 
 - /photos - photo gallery
 
-##Acknowledgements
+## Acknowledgements
 
 This project could not have been possible without the generous contributions from the following people and organizations:
 
